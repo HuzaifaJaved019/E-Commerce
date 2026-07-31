@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE | Ready-to-Wear Collections</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/app.js" defer></script>
+</head>
+<body class="bg-surface text-on-surface">
+
+    <!-- Top Navigation -->
+    <header class="top-nav">
+        <div class="top-nav-inner flex justify-between items-center w-full">
+            <div class="flex items-center gap-xl" style="gap: 48px;">
+                <a href="#" class="nav-brand font-display-lg">LUXE</a>
+                <nav class="nav-links">
+                    <a href="#" class="nav-link active">Shop All</a>
+                    <a href="#" class="nav-link">Collections</a>
+                    <a href="#" class="nav-link">Designers</a>
+                    <a href="#" class="nav-link">Journal</a>
+                    <a href="#" class="nav-link">Bespoke</a>
+                </nav>
+            </div>
+            <div class="nav-icons flex items-center gap-md">
+                <div class="nav-search">
+                    <span class="material-symbols-outlined nav-search-icon">search</span>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <button class="nav-icon-btn material-symbols-outlined">favorite</button>
+                <button class="nav-icon-btn material-symbols-outlined relative">
+                    shopping_bag
+                    <span class="cart-badge">2</span>
+                </button>
+                <button class="nav-icon-btn material-symbols-outlined">person</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container py-xl">
+
+            <!-- Page Header -->
+            <section class="page-header fade-in-section">
+                <div class="flex flex-col md:flex-row justify-between items-end gap-md">
+                    <div class="max-w-2xl">
+                        <h1 class="page-title font-display-lg mb-sm">Ready-to-Wear</h1>
+                        <p class="page-desc font-body-lg">A curated selection of archival pieces and modern essentials, defined by impeccable craftsmanship and silhouette integrity.</p>
+                    </div>
+                    <div class="page-results">
+                        <span class="font-label-caps">248 Results Found</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 12-Col Layout: 4-col Sidebar + 8-col Product Grid -->
+            <div class="grid grid-cols-12 gap-gutter fade-in-section">
+
+                <!-- Filter Sidebar (4 cols) -->
+                <aside class="filter-sidebar col-span-4 lg:col-span-3">
+
+                    <!-- CATEGORIES -->
+                    <div class="filter-group">
+                        <h3 class="font-label-caps">CATEGORIES</h3>
+                        <ul>
+                            <li><a href="#" class="active font-semibold">All Apparel</a></li>
+                            <li><a href="#">Outerwear</a></li>
+                            <li><a href="#">Tailoring</a></li>
+                            <li><a href="#">Knitwear</a></li>
+                            <li><a href="#">Accessories</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- COLOUR -->
+                    <div class="filter-group">
+                        <h3 class="font-label-caps">COLOUR</h3>
+                        <div class="filter-colors">
+                            <button class="color-swatch active" style="background-color: #000000;"></button>
+                            <button class="color-swatch ring-outline" style="background-color: #ffffff;"></button>
+                            <button class="color-swatch ring-outline" style="background-color: #f5f5dc;"></button>
+                            <button class="color-swatch ring-outline" style="background-color: #343434;"></button>
+                            <button class="color-swatch ring-outline" style="background-color: #1a365d;"></button>
+                            <button class="color-swatch ring-outline" style="background-color: #2d3748;"></button>
+                        </div>
+                    </div>
+
+                    <!-- SIZE -->
+                    <div class="filter-group">
+                        <h3 class="font-label-caps">SIZE</h3>
+                        <div class="filter-sizes">
+                            <button class="size-btn">XS</button>
+                            <button class="size-btn active">S</button>
+                            <button class="size-btn">M</button>
+                            <button class="size-btn">L</button>
+                            <button class="size-btn">XL</button>
+                        </div>
+                    </div>
+
+                    <!-- PRICE -->
+                    <div class="filter-group">
+                        <h3 class="font-label-caps">PRICE</h3>
+                        <div class="filter-price">
+                            <input type="range" class="price-range" min="200" max="4500" value="2350">
+                            <div class="price-labels">
+                                <span>Rs.200</span>
+                                <span>Rs.4500+</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MATERIAL -->
+                    <div class="filter-group">
+                        <h3 class="font-label-caps">MATERIAL</h3>
+                        <div class="filter-materials">
+                            <label class="material-check">
+                                <input type="checkbox">
+                                <span>Organic Silk</span>
+                            </label>
+                            <label class="material-check">
+                                <input type="checkbox">
+                                <span>Cashmere Blend</span>
+                            </label>
+                            <label class="material-check">
+                                <input type="checkbox" checked>
+                                <span class="font-semibold text-primary">Virgin Wool</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- RATINGS -->
+                    <div class="filter-group">
+                        <h3 class="font-label-caps">RATINGS</h3>
+                        <div class="filter-ratings">
+                            <button class="rating-btn">
+                                <div class="rating-stars">
+                                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">star</span>
+                                </div>
+                                <span class="rating-label">&amp; Up</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </aside>
+
+                <!-- Product Grid Section (8 cols) -->
+                <section class="col-span-12 lg:col-span-9">
+
+                    <!-- Grid Controls -->
+                    <div class="grid-controls">
+                        <div class="view-toggles">
+                            <button class="view-toggle active bg-primary text-on-primary">
+                                <span class="material-symbols-outlined">grid_view</span>
+                            </button>
+                            <button class="view-toggle">
+                                <span class="material-symbols-outlined">view_list</span>
+                            </button>
+                        </div>
+                        <div class="sort-control">
+                            <span class="sort-label font-label-caps">SORT BY:</span>
+                            <select class="sort-select">
+                                <option>Newest Arrivals</option>
+                                <option>Popularity</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                                <option>Highest Rated</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Product Grid 3-cols -->
+                    <div class="product-grid cols-3 collections-product-grid">
+
+                        <!-- Product 1: Sculpted Wool Coat -->
+                        <div class="product-card group">
+                            <div class="product-image-wrap aspect-[3/4] overflow-hidden bg-surface-container mb-md relative">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZBAFbGObOhkMXD5hsocTBJJbpIvKzsH1i9UyGOkOXs-zT1i5ozMglgrCHiZ2_VFGTRcg8pgafTl876S_QGehjdwnOG0JWuv7wHtNW6FMFZ-CiX5OMogKtWTkINy3DaXS-A-bAdLa41X2uQcs7jMJP5sygnPwNl6TsOV4cSyOtqXhbgSyJWSvZNygJDjrDFIZbnO-mefS353NOopE849pFkAUZzcxW6OW119RAupdmQ91Ed7TjKoX4"
+                                     alt="Sculpted Wool Coat">
+                                <div class="product-actions quick-actions absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 opacity-0 transform translate-y-4 transition-all duration-300">
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">shopping_bag</span>
+                                    </button>
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">visibility</span>
+                                    </button>
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">favorite</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-collections-info flex justify-between items-start">
+                                <div>
+                                    <h3 class="product-collections-name font-headline-md mb-xs">Sculpted Wool Coat</h3>
+                                    <p class="product-collections-category font-label-caps">ARCHIVE COLLECTION</p>
+                                </div>
+                                <p class="product-collections-price font-headline-md">Rs.1,850</p>
+                            </div>
+                        </div>
+
+                        <!-- Product 2: Pleated Silk Blouse -->
+                        <div class="product-card group">
+                            <div class="product-image-wrap aspect-[3/4] overflow-hidden bg-surface-container mb-md relative">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuChDie8hS4_GNizYJepn5lFCcYQ5Ym5iAoTx9bpkWD4jQKQQlY2KDS0KiQU328YBJyIXUM2nL51aVHUW7vvlcMOYykdARE8TPQ_8e3z9opYmW3JOXB0bGlvCQE-l42vmZ_2sq2Sy-57F4nOkj13Qzwyqc58VreYdi497EJVWaC_saEC5YKxvoyFExkZRY3j23KKjN4TX91tUrykDhZidSm1E8s19gNYmtdbduC3LyBpwaslDKz-YCTa"
+                                     alt="Pleated Silk Blouse">
+                                <div class="product-actions quick-actions absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 opacity-0 transform translate-y-4 transition-all duration-300">
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">shopping_bag</span>
+                                    </button>
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">visibility</span>
+                                    </button>
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">favorite</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-collections-info flex justify-between items-start">
+                                <div>
+                                    <h3 class="product-collections-name font-headline-md mb-xs">Pleated Silk Blouse</h3>
+                                    <p class="product-collections-category font-label-caps">ESSENTIALS</p>
+                                </div>
+                                <p class="product-collections-price font-headline-md">Rs.890</p>
+                            </div>
+                        </div>
+
+                        <!-- Product 3: Cashmere Trousers -->
+                        <div class="product-card group">
+                            <div class="product-image-wrap aspect-[3/4] overflow-hidden bg-surface-container mb-md relative">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuBprfBg6Uy0GZohxWA5pifh4AFTpW6of7_bb4mof036O9y9PoImKQz7K-NLf0pSQFtXMNMMljzq8VsSFUECNusmxQMbmDCIcAZvcHV9Xduw8YcFJmedJbRMf1sXDvu9OCRSwxx4EUHpjeUPzxoB81ZA3DgVnYcfiEzqFH0ABoKLiLVFzQzrHAp0LcB9su_KeUDWbLgh_o0jWD70mwkOcQ6g1zusKbgRSm76yAeAh6LcYKiY4LD4K-HV"
+                                     alt="Cashmere Trousers">
+                                <div class="product-actions quick-actions absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 opacity-0 transform translate-y-4 transition-all duration-300">
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">shopping_bag</span>
+                                    </button>
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">visibility</span>
+                                    </button>
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">favorite</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-collections-info flex justify-between items-start">
+                                <div>
+                                    <h3 class="product-collections-name font-headline-md mb-xs">Cashmere Trousers</h3>
+                                    <p class="product-collections-category font-label-caps">TAILORING</p>
+                                </div>
+                                <p class="product-collections-price font-headline-md">Rs.1,200</p>
+                            </div>
+                        </div>
+
+                        <!-- Product 4: Architectural Tote -->
+                        <div class="product-card group">
+                            <div class="product-image-wrap aspect-[3/4] overflow-hidden bg-surface-container mb-md relative">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5PL1JuQuGqVEVtt_fXnZBi6DwqcXuMKXhVS-1orPoeb764fN8JN3QiEGT8xtTlGUpAYwi7bFndL1wU9FWNz9S0212YbbNtE_9Hz0stHmYSl_aTaMUc0gRh_XzqIUo9UX4oDULw3Imp5wgq1N0-ZFMK2NqMh3HN6bxxZTNNXn9QhB4_btQwxtYvvtamvwA2_EmabdHn5ZaUOSe-NU0W4A08ukcMF9FraLZitweNGmfVkx_3Hht38q3"
+                                     alt="Architectural Tote">
+                                <div class="product-actions quick-actions absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 opacity-0 transform translate-y-4 transition-all duration-300">
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">shopping_bag</span>
+                                    </button>
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">visibility</span>
+                                    </button>
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">favorite</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-collections-info flex justify-between items-start">
+                                <div>
+                                    <h3 class="product-collections-name font-headline-md mb-xs">Architectural Tote</h3>
+                                    <p class="product-collections-category font-label-caps">LEATHER GOODS</p>
+                                </div>
+                                <p class="product-collections-price font-headline-md">Rs.2,400</p>
+                            </div>
+                        </div>
+
+                        <!-- Product 5: Ribbed Merino Knit -->
+                        <div class="product-card group">
+                            <div class="product-image-wrap aspect-[3/4] overflow-hidden bg-surface-container mb-md relative">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3wKPzE1-4q50jfXFK9kPcmBZlC8Jn_4BCq9JPvvg6WctHIwdDWpxxwf-TSNix3By17PzU13SgEF31LwP3DhEwiMxGb5omkikEmPyU99UUSD17lTSGiOvHdD_4L0hx7KzicCb6CjhO2B_AhNmGt5gCUmxEgtyvNEpNI-Pss3rcLvyufZhGHjAOn7PAY_hES5xg-rj4D6farNIUb1Vo2E6621Anl7dZgrPnRjb59qAQ1hHlRCAHV34T"
+                                     alt="Ribbed Merino Knit">
+                                <div class="product-actions quick-actions absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 opacity-0 transform translate-y-4 transition-all duration-300">
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">shopping_bag</span>
+                                    </button>
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">visibility</span>
+                                    </button>
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">favorite</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-collections-info flex justify-between items-start">
+                                <div>
+                                    <h3 class="product-collections-name font-headline-md mb-xs">Ribbed Merino Knit</h3>
+                                    <p class="product-collections-category font-label-caps">KNITWEAR</p>
+                                </div>
+                                <p class="product-collections-price font-headline-md">Rs.550</p>
+                            </div>
+                        </div>
+
+                        <!-- Product 6: Sharp Ankle Boot -->
+                        <div class="product-card group">
+                            <div class="product-image-wrap aspect-[3/4] overflow-hidden bg-surface-container mb-md relative">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF8BGqns8L8W3nflfaCM6szMRErN1qZHMXwBUxlizmK1Ks_XMMw6-MY6YyThmR8Td-evRGy6cOBGoWL2Kedc02RzHEQCUUix0bA8yv2Ghre3XGBt3j4tqOQqwBrEpWWDjYkReUFxK4UyA8Rm_D0rAA124JUOYy0n_3OVL6si7PrWVTLk2WenHTopCsvkcKJ2dNByChdTr4dC50rw_46oEWkCnOaHeNLgM2EuQrKNwccheI-Cop8ERf"
+                                     alt="Sharp Ankle Boot">
+                                <div class="product-actions quick-actions absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 opacity-0 transform translate-y-4 transition-all duration-300">
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">shopping_bag</span>
+                                    </button>
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">visibility</span>
+                                    </button>
+                                    <button class="w-12 h-12 bg-white text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-lg btn-icon btn-icon-white">
+                                        <span class="material-symbols-outlined">favorite</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-collections-info flex justify-between items-start">
+                                <div>
+                                    <h3 class="product-collections-name font-headline-md mb-xs">Sharp Ankle Boot</h3>
+                                    <p class="product-collections-category font-label-caps">FOOTWEAR</p>
+                                </div>
+                                <p class="product-collections-price font-headline-md">Rs.1,150</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="pagination-btn" disabled>
+                            <span class="material-symbols-outlined text-sm">arrow_back</span>
+                            PREV
+                        </button>
+                        <div class="pagination-pages">
+                            <span class="pagination-page active">01</span>
+                            <a href="#" class="pagination-page">02</a>
+                            <a href="#" class="pagination-page">03</a>
+                            <span class="pagination-page">...</span>
+                            <a href="#" class="pagination-page">12</a>
+                        </div>
+                        <button class="pagination-btn">
+                            NEXT
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </button>
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer 6-col Grid -->
+    <footer class="footer grid grid-cols-6 gap-gutter">
+        <div class="footer-brand-col col-span-2">
+            <a href="#" class="footer-brand font-headline-lg">LUXE</a>
+            <p class="footer-desc font-body-sm">
+                © 2024 LUXE. All rights reserved. Curated for the discerning eye. Establishing the standard for modern luxury through architectural precision and ethical craftsmanship.
+            </p>
+            <div class="footer-social">
+                <a href="#" class="material-symbols-outlined">public</a>
+                <a href="#" class="material-symbols-outlined">share</a>
+                <a href="#" class="material-symbols-outlined">camera</a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h5 class="font-label-caps mb-md">COLLECTIONS</h5>
+            <ul>
+                <li><a href="#" class="font-body-sm">New Arrivals</a></li>
+                <li><a href="#" class="font-body-sm">Bestsellers</a></li>
+                <li><a href="#" class="font-body-sm">Archive</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5 class="font-label-caps mb-md">SERVICES</h5>
+            <ul>
+                <li><a href="#" class="font-body-sm">Bespoke Tailoring</a></li>
+                <li><a href="#" class="font-body-sm">Care Guide</a></li>
+                <li><a href="#" class="font-body-sm">Gifting</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5 class="font-label-caps mb-md">SUPPORT</h5>
+            <ul>
+                <li><a href="#" class="font-body-sm">Shipping &amp; Returns</a></li>
+                <li><a href="#" class="font-body-sm">FAQs</a></li>
+                <li><a href="#" class="font-body-sm">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5 class="font-label-caps mb-md">CONNECT</h5>
+            <ul>
+                <li><a href="#" class="font-body-sm">Instagram</a></li>
+                <li><a href="#" class="font-body-sm">Pinterest</a></li>
+                <li><a href="#" class="font-body-sm">Newsletter</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>

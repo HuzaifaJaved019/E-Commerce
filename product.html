@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE | The Ethereal Chronograph</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/app.js" defer></script>
+    <style>
+        @media (min-width: 768px) {
+            .md\:flex-row { flex-direction: row; }
+            .md\:w-24 { width: 96px; }
+            .md\:col-span-5 { grid-column: span 5 / span 5; }
+            .md\:col-span-7 { grid-column: span 7 / span 7; }
+            .md\:col-span-12 { grid-column: span 12 / span 12; }
+            .md\:text-left { text-align: left; }
+            .md\:flex-row { flex-direction: row; }
+        }
+        @media (min-width: 1024px) {
+            .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+            .lg\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+            .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+            .lg\:col-span-7 { grid-column: span 7 / span 7; }
+            .lg\:col-span-5 { grid-column: span 5 / span 5; }
+            .lg\:col-span-2 { grid-column: span 2 / span 2; }
+            .lg\:col-span-1 { grid-column: span 1 / span 1; }
+            .md\:flex-col { flex-direction: column; }
+        }
+        .flex-col-reverse { flex-direction: column-reverse; }
+        .btn.primary {
+            background-color: var(--primary);
+            color: var(--on-primary);
+            border: 1px solid var(--primary);
+        }
+        .btn.primary:hover {
+            background-color: var(--on-surface-variant);
+        }
+        .btn.primary:active {
+            transform: scale(0.98);
+        }
+        .btn.secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        .btn.secondary:hover {
+            background-color: var(--surface-container-low);
+        }
+        .btn.secondary:active {
+            transform: scale(0.98);
+        }
+        .active-swatch {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+        .trust-badges-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--stack-md);
+            padding: var(--stack-md);
+            background-color: var(--surface-container-low);
+        }
+        .rotate-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-item.active .rotate-icon {
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+            max-height: 0;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+        .pdp-thumbs .pdp-thumb-btn.active {
+            border-color: var(--primary);
+        }
+        .pdp-thumbs .pdp-thumb-btn {
+            border-color: transparent;
+        }
+        .pdp-thumbs .pdp-thumb-btn:hover {
+            border-color: var(--outline-variant);
+        }
+        .hidden-md { display: none; }
+        @media (min-width: 768px) {
+            .hidden-md { display: flex; }
+        }
+        @media (min-width: 768px) {
+            .md\:overflow-y-auto { overflow-y: auto; }
+            .md\:overflow-x-visible { overflow-x: visible; }
+        }
+        .w-20 { width: 80px; }
+        .shrink-0 { flex-shrink: 0; }
+        .border-2 { border-width: 2px; border-style: solid; }
+        .object-cover { object-fit: cover; }
+        .tracking-widest { letter-spacing: 0.2em; }
+        .hover\:scale-110:hover { transform: scale(1.1); }
+        .appearance-none { appearance: none; }
+        .ring-outline { border: 1px solid var(--outline-variant); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+
+    <!-- 1. Sticky Top Navigation -->
+    <header class="top-nav">
+        <div class="top-nav-inner flex justify-between items-center w-full">
+            <div class="flex items-center gap-xl" style="gap: 48px;">
+                <a href="index.html" class="nav-brand font-display-lg">LUXE</a>
+                <nav class="nav-links">
+                    <a href="#" class="nav-link">Shop All</a>
+                    <a href="collections.html" class="nav-link active">Collections</a>
+                    <a href="#" class="nav-link">Designers</a>
+                    <a href="#" class="nav-link">Journal</a>
+                    <a href="#" class="nav-link">Bespoke</a>
+                </nav>
+            </div>
+            <div class="nav-icons flex items-center gap-md">
+                <button class="nav-icon-btn material-symbols-outlined">favorite</button>
+                <button class="nav-icon-btn material-symbols-outlined relative">
+                    shopping_bag
+                    <span class="cart-badge">2</span>
+                </button>
+                <button class="nav-icon-btn material-symbols-outlined">person</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="pdp-main">
+
+            <!-- 2. Breadcrumbs Navigation -->
+            <nav class="breadcrumbs fade-in-section">
+                <a href="index.html">Home</a>
+                <span class="material-symbols-outlined sep">chevron_right</span>
+                <a href="collections.html">Collections</a>
+                <span class="material-symbols-outlined sep">chevron_right</span>
+                <span class="current">The Ethereal Chronograph</span>
+            </nav>
+
+            <!-- 3. 12-Col Main Grid: 7-col Gallery + 5-col Info -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-xl items-start fade-in-section">
+
+                <!-- Gallery (col-span-7, flex-col-reverse md:flex-row) -->
+                <section class="lg:col-span-7 pdp-gallery flex flex-col-reverse md:flex-row gap-gutter">
+
+                    <!-- 4 Vertical Thumbnails (.pdp-thumbs) -->
+                    <div class="pdp-thumbs flex md:flex-col gap-sm overflow-x-auto md:overflow-y-auto no-scrollbar w-auto md:w-24">
+                        <button class="pdp-thumb-btn active w-20 md:w-24 aspect-square border-2 overflow-hidden transition-all shrink-0">
+                            <img class="w-full h-full object-cover"
+                                 alt="A high-resolution, close-up editorial shot of a luxury watch with a minimalist silver face and a dark navy leather strap."
+                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBccs6ijZPZqkorXilbmIO3IVYcKctqn5VoPa3xqc-E-KsmH_H6NRpQXlMQsM4AQSfOKUaWhF5NPhLQVECWo490sx1jb2ExbhsjwHsZCPvTr3pkTQ7AXxewBJFF35UpU5W3NsSKWsEeXKUSH-iSr91ZTSr9yq6yz8hkfi4M6WiA0bwVUR1C95P7rCyqOcFCtgcPpEhCdQO5X95qsvSyPRD6wTyoHzy85QxsNlIIPtXnu6byiE0R5Ed">
+                        </button>
+                        <button class="pdp-thumb-btn w-20 md:w-24 aspect-square border-2 overflow-hidden transition-all shrink-0">
+                            <img class="w-full h-full object-cover"
+                                 alt="A detailed side-profile macro shot of a sleek, luxury watch showing the precision-engineered crown and the thickness of the sapphire glass."
+                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv5igpZewqv45ELn3XMASKoIsdf1pu2MFvbFFRLqeAQU4GeJsyQqgB068dvprhq6ICwWNf8CpBuKmt4RUz3hNPBKgnGPS8MxGWwTdKOZFVXLOOJX0WS4pOZF6vixzkJVUbYfEYhEe9Dg8m8ngmJypbJJ18YKqscjhp2edGCLTTnzi2ODk3QePNhx07gSHKzpNXu0r_1nObsTTvMSFNFPwdvTyD_5_4fqCoEJFb49GPuUGZQmvrEOuQ">
+                        </button>
+                        <button class="pdp-thumb-btn w-20 md:w-24 aspect-square border-2 overflow-hidden transition-all shrink-0">
+                            <img class="w-full h-full object-cover"
+                                 alt="A lifestyle shot of a professional individual wearing a minimalist luxury watch while sketching on a premium paper notebook."
+                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuABgB4pjNHz23NrVfX0nalfO-3OmwQpRy_vVMW8I6eButeBCd4Tembj0hpW42f7jtC1dlQZdoaMu9FB1DDz0Sg6kYDieoVv8Eaxrtl2kNmrsavQVTfhoOOcjws3RwFnH7AKW-1pMJXJowT55tD21I09RQrFZl83LL4LHHJMQnVF2OEFFGAQnfI5SQE2skTa0xGr9ndvoVYzyFi6jBZIfpJU3U0RhvJvYItN35q_aciIVrWjQZL-Kojd">
+                        </button>
+                        <button class="pdp-thumb-btn w-20 md:w-24 aspect-square border-2 overflow-hidden transition-all shrink-0">
+                            <img class="w-full h-full object-cover"
+                                 alt="A studio photograph of the luxury watch disassembled into its core components, showcasing the intricate internal movement."
+                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSbs3oZl4xRwMbKGxTNse7FBQW_BcZ6Wfl2m58ziGXCMm3TMuBOKqN0OJh9Seh8douQKQErU__ApSMqNEZml6kpCHMATWPdUx6msYnECVumv1KUvM97hR3KOBWKuZXeK6liUQdZ58U2efZMN4TnFtwWt4g8KatwCkoTX7TqWBkz3WDgQZPSb0OIlG9Jm6IhuLHcfCwrl5jXuuGDuCCk9gIpbOtiDwnV70o8TMtDCl5M0DrpEkXZg5o">
+                        </button>
+                    </div>
+
+                    <!-- Main Image (.pdp-main-img-wrap, 4/5 aspect, zoom hover) -->
+                    <div class="pdp-main-image aspect-[4/5] bg-surface-container-highest relative overflow-hidden group">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                             alt="A stunning, full-frame editorial hero shot of the 'Ethereal Chronograph' luxury watch."
+                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_RBItoQSbmYVmAh0QgiRpKRZIlKivahi62QjdgnT_NQOCQJkcIXzm7ycFMWE6D0TmnDO030jo-pfxgVtEHEZs3TnPzj1P-xFK_pikVAGoLZlY5ypgZpKg9fY7-EPju12-IgTc4DlpTn7RlY1hNgmairB-chLPtYGPBQEZXvTg9375YEAvua_j-jdcfZ7-0KZVHpljMXOfppOUMcS4tXfCk_QvOJbwmVymw1vo3JyrCf4FrK18lOa-">
+                        <div class="pdp-badge">Limited Edition</div>
+                    </div>
+                </section>
+
+                <!-- Info Column (col-span-5, space-y sections) -->
+                <section class="lg:col-span-5 pdp-info space-y-lg">
+
+                    <!-- Eyebrow, Title, Rating -->
+                    <div class="space-y-sm">
+                        <p class="pdp-collection font-label-caps text-on-surface-variant tracking-widest">Masterpiece Collection</p>
+                        <h1 class="pdp-name font-headline-lg text-primary">The Ethereal Chronograph</h1>
+                        <div class="pdp-rating-row flex items-center gap-lg">
+                            <div class="pdp-rating-stars flex items-center">
+                                <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1">star</span>
+                                <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1">star</span>
+                                <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1">star</span>
+                                <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1">star</span>
+                                <span class="material-symbols-outlined text-outline-variant text-[18px]" style="font-variation-settings: 'FILL' 1">star</span>
+                            </div>
+                            <span class="pdp-rating-count font-label-caps text-on-surface-variant">(48 Verified Reviews)</span>
+                        </div>
+                    </div>
+
+                    <!-- Price Row -->
+                    <div class="pdp-price-row flex items-baseline gap-lg">
+                        <span class="pdp-price font-headline-md text-primary">Rs.1,250.00</span>
+                        <span class="pdp-price-old font-body-md text-on-surface-variant line-through">Rs.1,800.00</span>
+                        <span class="pdp-discount bg-error-container text-on-error-container px-sm py-xs rounded-sm font-label-caps text-[10px] uppercase font-bold">-30%</span>
+                    </div>
+
+                    <!-- Color & Size Options -->
+                    <div class="pdp-divider-top">
+                        <!-- Color Section -->
+                        <div class="pdp-options-block space-y-sm">
+                            <p class="pdp-option-label font-label-caps text-on-surface-variant uppercase">Color: <span class="value text-primary font-bold">Midnight Navy</span></p>
+                            <div class="pdp-color-swatches flex gap-lg">
+                                <button class="pdp-color-swatch active-swatch w-8 h-8 rounded-full transition-transform hover:scale-110" style="background-color: #0F172A;" title="Midnight Navy"></button>
+                                <button class="pdp-color-swatch w-8 h-8 rounded-full border border-outline-variant transition-transform hover:scale-110" style="background-color: #E2E8F0;" title="Alabaster White"></button>
+                                <button class="pdp-color-swatch w-8 h-8 rounded-full border border-outline-variant transition-transform hover:scale-110" style="background-color: #1E293B;" title="Space Gray"></button>
+                            </div>
+                        </div>
+                        <!-- Size Section -->
+                        <div class="pdp-options-block space-y-sm">
+                            <div class="pdp-option-label-row flex justify-between items-center">
+                                <p class="pdp-option-label font-label-caps text-on-surface-variant uppercase">Size</p>
+                                <button class="pdp-size-guide text-primary underline underline-offset-4 uppercase">Size Guide</button>
+                            </div>
+                            <select class="pdp-size-select w-full bg-surface border border-outline px-md py-md text-body-md appearance-none outline-none">
+                                <option>40mm Case</option>
+                                <option>42mm Case</option>
+                                <option>44mm Case (Out of Stock)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons + Secure Checkout -->
+                    <div class="pdp-actions space-y-sm pt-sm">
+                        <button class="btn primary w-full py-lg bg-primary text-on-primary font-label-caps uppercase tracking-widest transition-all duration-300 shadow-sm">
+                            Add to Cart
+                        </button>
+                        <button class="btn secondary w-full py-lg border border-primary text-primary font-label-caps uppercase tracking-widest transition-all duration-300">
+                            Buy It Now
+                        </button>
+                        <p class="pdp-secure-text text-center font-body-sm text-on-surface-variant flex items-center justify-center gap-sm">
+                            <span class="material-symbols-outlined icon text-[16px]">lock</span>
+                            Secure Checkout &amp; Encrypted Connection
+                        </p>
+                    </div>
+
+                    <!-- Trust Badges 2x2 Grid (.trust-badges-grid) -->
+                    <div class="trust-badges-grid bg-surface-container-low">
+                        <div class="pdp-trust-item flex items-center gap-md">
+                            <span class="material-symbols-outlined text-primary">local_shipping</span>
+                            <div>
+                                <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Express Shipping</p>
+                                <p class="font-body-sm text-[12px] font-bold text-on-surface">2-3 Business Days</p>
+                            </div>
+                        </div>
+                        <div class="pdp-trust-item flex items-center gap-md">
+                            <span class="material-symbols-outlined text-primary">verified_user</span>
+                            <div>
+                                <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Lifetime Warranty</p>
+                                <p class="font-body-sm text-[12px] font-bold text-on-surface">Certified Luxury</p>
+                            </div>
+                        </div>
+                        <div class="pdp-trust-item flex items-center gap-md">
+                            <span class="material-symbols-outlined text-primary">replay</span>
+                            <div>
+                                <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">30-Day Returns</p>
+                                <p class="font-body-sm text-[12px] font-bold text-on-surface">No Questions Asked</p>
+                            </div>
+                        </div>
+                        <div class="pdp-trust-item flex items-center gap-md">
+                            <span class="material-symbols-outlined text-primary">support_agent</span>
+                            <div>
+                                <p class="font-label-caps text-[10px] text-on-surface-variant uppercase">24/7 Concierge</p>
+                                <p class="font-body-sm text-[12px] font-bold text-on-surface">Expert Assistance</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 Accordion Items (.accordion-item, first active) -->
+                    <div class="pdp-accordion space-y-0 border-t border-outline-variant pt-md">
+                        <div class="accordion-item active border-b border-outline-variant">
+                            <button class="accordion-trigger w-full flex justify-between items-center py-md text-left" onclick="this.parentElement.classList.toggle('active')">
+                                <span class="accordion-title font-label-caps uppercase tracking-widest text-primary">Description</span>
+                                <span class="material-symbols-outlined rotate-icon">expand_more</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-inner pb-lg">
+                                    <p class="accordion-text font-body-md text-on-surface-variant leading-relaxed">
+                                        Experience the pinnacle of horological craftsmanship. The Ethereal Chronograph features a Japanese-made automatic movement housed within a surgical-grade stainless steel case. Every detail is curated for the discerning eye, from the anti-reflective sapphire crystal to the hand-stitched Italian leather strap. This is not just a timepiece; it is an heirloom of the future.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b border-outline-variant">
+                            <button class="accordion-trigger w-full flex justify-between items-center py-md text-left" onclick="this.parentElement.classList.toggle('active')">
+                                <span class="accordion-title font-label-caps uppercase tracking-widest text-primary">Specifications</span>
+                                <span class="material-symbols-outlined rotate-icon">expand_more</span>
+                            </button>
+                            <div class="accordion-content">
+                                <ul class="accordion-spec-list pb-lg space-y-xs">
+                                    <li><span>Case Diameter</span> <span class="value font-bold text-primary">40mm / 42mm</span></li>
+                                    <li><span>Movement</span> <span class="value font-bold text-primary">Automatic Self-Wind</span></li>
+                                    <li><span>Water Resistance</span> <span class="value font-bold text-primary">10 ATM (100 Meters)</span></li>
+                                    <li><span>Glass</span> <span class="value font-bold text-primary">Scratch-Resistant Sapphire</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b border-outline-variant">
+                            <button class="accordion-trigger w-full flex justify-between items-center py-md text-left" onclick="this.parentElement.classList.toggle('active')">
+                                <span class="accordion-title font-label-caps uppercase tracking-widest text-primary">Shipping &amp; Returns</span>
+                                <span class="material-symbols-outlined rotate-icon">expand_more</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-inner pb-lg font-body-sm text-on-surface-variant space-y-sm">
+                                    <p>Complimentary express shipping on all orders over Rs.500. Delivery typically occurs within 2-4 business days worldwide.</p>
+                                    <p>We offer a 30-day "no questions asked" return policy. Items must be in original, unworn condition with all protective films intact.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 4. Frequently Bought Together Section -->
+            <section class="fbt-section fade-in-section">
+                <h3 class="fbt-title font-headline-md text-primary mb-lg">Frequently Bought Together</h3>
+                <div class="fbt-bundle bg-surface-container-low p-lg flex flex-col md:flex-row items-center gap-gutter">
+                    <div class="fbt-items flex items-center gap-sm">
+                        <div class="fbt-item-img w-24 h-24 bg-white border border-outline-variant overflow-hidden">
+                            <img class="w-full h-full object-cover"
+                                 alt="A minimalist luxury watch with a navy strap on a white background, studio shot."
+                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5y0Y8QMBAJTgXwQozGl8FDX8ep1TF-e4r74LH2cGc-P-obdcxAgmFheM3BZYRHQg7NQSmJZ-QKwYAiCrEN8JZVMEed3b57o4G9JCW2fwcTnHrJ6VPDF557UlGjwFWnoSknFr9sqceagooXmNEWZ1_BI0xpDHZBquWFJxKnHmabrapGpyUxSFKZaOkD9Ax5X7VLcs0t_OlT2UPWO6edCmvYrwKhvP8kROjGW6q-H_EQeNiScS_Gvc9">
+                        </div>
+                        <span class="fbt-plus material-symbols-outlined text-outline-variant">add</span>
+                        <div class="fbt-item-img w-24 h-24 bg-white border border-outline-variant overflow-hidden">
+                            <img class="w-full h-full object-cover"
+                                 alt="A premium black leather travel watch roll with velvet lining, displayed in a clean, minimalist studio setting."
+                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYsP7FNXwFT6rERfFc-wtfbpI02G5_TWg_ad_xVWCvPXAUOePjyIH5CUAozcsGeb7Kkn4uIdh61VZpBNHHglcyoZ7quj05yTaglX-AHd4jz352MhZEkUIVRynDzgmyRqk2U_nSTcC2lveYU-EX2zuk0f8n9nG2EHcAsYPrgskKA6PiZxE_vH9R4A2ikY4tJuGRgmij50_SfCxnNXKJR5R2GkcRAHNCxdORTLmg2CVmPLM6HXxJ1YNk">
+                        </div>
+                        <span class="fbt-plus material-symbols-outlined text-outline-variant">add</span>
+                        <div class="fbt-item-img w-24 h-24 bg-white border border-outline-variant overflow-hidden">
+                            <img class="w-full h-full object-cover"
+                                 alt="A sleek stainless steel watch cleaning kit in professional packaging, minimalist editorial style."
+                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZHzxp5Hyw3Cxv2_Lx20YaIPqNlv57ssztZW7--XbivCzbZ0DjdywOk5xg7OrugxEve1Kp_DjPbArwlqm5lUxdjf0vch1glL6oNi_NyX3zGEzE_QpekRuQMkCLCKkg7zwV5eRVRwttxZkWvPtpoeOnMbJ6ZUTS8m0SfDoH-oOX2TvdpbI0I3o2c93PU1Unp2znXqjshA_IBP7T7aGe9xU57w4gXKgCOo5-d6eazoIGXJe3B3eL1_Of">
+                        </div>
+                    </div>
+                    <div class="fbt-total flex-grow text-center md:text-left">
+                        <p class="fbt-total-label font-body-md text-on-surface-variant">Total Bundle Price</p>
+                        <p class="fbt-total-price font-headline-md text-primary">Rs.1,450.00</p>
+                    </div>
+                    <button class="btn primary px-lg py-md bg-primary text-on-primary font-label-caps uppercase tracking-widest hover:opacity-90 transition-all">
+                        Add Bundle to Cart
+                    </button>
+                </div>
+            </section>
+
+            <!-- 5. Related Products Grid 4-Col -->
+            <section class="related-section fade-in-section">
+                <div class="related-header flex justify-between items-end mb-lg">
+                    <h3 class="font-headline-md text-primary">Related Products</h3>
+                    <a class="section-link font-label-caps text-primary underline underline-offset-4 uppercase font-bold" href="#">View All</a>
+                </div>
+                <div class="related-grid grid grid-cols-2 lg:grid-cols-4 gap-gutter">
+                    <!-- Related Item 1: The Aurelian Moonphase -->
+                    <div class="related-card group cursor-pointer">
+                        <div class="related-card-image aspect-[3/4] bg-surface-container-highest mb-sm overflow-hidden relative">
+                            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                 alt="Minimalist gold luxury watch with a white dial and brown leather strap, soft morning lighting."
+                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtwtXpw5sz_P6Fn9QFrXfAj9arXK2OrUV_blXwv-56sAoqp6rVXwDcHcOw_rj6_bUQI0EN2_Q_kg7Hht6sWptJRwcHi3uaBokce_dXYsWRIdxtgcTm7bc4zuliNxnj6E9ynlqqXhnWUPRfjH1Oo6VNQdENbm_877Unki5WcziUDSfO_VRzEMq-UgUPMy7Meys9k_EwJihNN0QLqTv-CzHXDPQTrCIidQXnW0B92DF1dF8FDBdGpRkw">
+                            <button class="related-quick-shop absolute bottom-4 left-4 right-4 py-sm bg-white/90 backdrop-blur-sm text-primary font-label-caps text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                                Quick Shop
+                            </button>
+                        </div>
+                        <p class="related-category font-label-caps text-[10px] text-on-surface-variant uppercase">Classic Series</p>
+                        <h4 class="related-name font-body-md font-bold text-primary">The Aurelian Moonphase</h4>
+                        <p class="related-price font-body-sm text-on-surface-variant">Rs.950.00</p>
+                    </div>
+                    <!-- Related Item 2: The Onyx V2 -->
+                    <div class="related-card group cursor-pointer">
+                        <div class="related-card-image aspect-[3/4] bg-surface-container-highest mb-sm overflow-hidden relative">
+                            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                 alt="Modern black titanium smartwatch with a mesh metal strap, high-key architectural lighting."
+                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuUMvoKFaL9dpGbH05qjVgOv9oAATsC_Kqxte89Hk33h48WXSGqhELKkYhMzubQwtyANqTxrFkzVQes57G9PfZGtcViOS0d1LySUTuxtvmh-Als5S84Tz-1KeNkXQsMgT7GxutHCbfusZ7Q68EZ0xHPV0sNscfnhKvM-0nlzE77ESskyvbs0SRBdPUQrueuJE29ORr9CK0KqCOCRnFdBz479UFTFliqfqMfqqUHCF4VndMXfS6H8kR">
+                            <button class="related-quick-shop absolute bottom-4 left-4 right-4 py-sm bg-white/90 backdrop-blur-sm text-primary font-label-caps text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                                Quick Shop
+                            </button>
+                        </div>
+                        <p class="related-category font-label-caps text-[10px] text-on-surface-variant uppercase">Hybrid Collection</p>
+                        <h4 class="related-name font-body-md font-bold text-primary">The Onyx V2</h4>
+                        <p class="related-price font-body-sm text-on-surface-variant">Rs.1,100.00</p>
+                    </div>
+                    <!-- Related Item 3: The Heritage Tank -->
+                    <div class="related-card group cursor-pointer">
+                        <div class="related-card-image aspect-[3/4] bg-surface-container-highest mb-sm overflow-hidden relative">
+                            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                 alt="Luxury dress watch with a rectangular silver case and a crocodile skin strap, editorial lighting."
+                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh7Rnk_i-TKXp_5HXAdAX63IsoQVT4qZew0VFS1KXIPxWNnDOzy_kdMKT6n1CmEv35S58529lSAXN_7PjGsqNaK0L2NNO2XmE4sFgy5ABdtbqC3jgpCl4wqTTpomgPs-lkJj9-AllsidFFUq3M68XibuRCNXXRQhpMEOwC3JWYj3hytRwjFIr-qX-YMYfVOeuwbUQpJTJua-Gppz5I31zga_8f9clOEkH1gFTUyGAwiqLljR95sM6o">
+                            <button class="related-quick-shop absolute bottom-4 left-4 right-4 py-sm bg-white/90 backdrop-blur-sm text-primary font-label-caps text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                                Quick Shop
+                            </button>
+                        </div>
+                        <p class="related-category font-label-caps text-[10px] text-on-surface-variant uppercase">Vintage Line</p>
+                        <h4 class="related-name font-body-md font-bold text-primary">The Heritage Tank</h4>
+                        <p class="related-price font-body-sm text-on-surface-variant">Rs.1,400.00</p>
+                    </div>
+                    <!-- Related Item 4: The Rose Skeletal -->
+                    <div class="related-card group cursor-pointer">
+                        <div class="related-card-image aspect-[3/4] bg-surface-container-highest mb-sm overflow-hidden relative">
+                            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                 alt="Sophisticated rose gold watch with an open-heart dial showing the internal gears, elegant lifestyle photography."
+                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWxD3LcaCuc2RwgoSZ2JR2Irj-uguE-xkFIFKVL7CoMJbaTBjB62jKQVipX5zD7Gv4Kpfuw20WPmDNY6TNyIibWPR8e5XIIk-PT66nStpHvZ3v4vCreDB2r8SCD9nuLNsHzNRU_lZIcfRkXkSHjfRQc7xp2Gl2vRuxKYzVqjf61nLB88tHJdxvPhpg1CcOeJ-pWcwMJCiVTx9LEj4TfvOIS_NTEWeHbmeDxY3NA4BjgDd9N8DMhz1P">
+                            <button class="related-quick-shop absolute bottom-4 left-4 right-4 py-sm bg-white/90 backdrop-blur-sm text-primary font-label-caps text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                                Quick Shop
+                            </button>
+                        </div>
+                        <p class="related-category font-label-caps text-[10px] text-on-surface-variant uppercase">Artisan Movement</p>
+                        <h4 class="related-name font-body-md font-bold text-primary">The Rose Skeletal</h4>
+                        <p class="related-price font-body-sm text-on-surface-variant">Rs.2,100.00</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- 6. Footer: 6-Col Grid -->
+    <footer class="w-full bg-surface-container-low border-t border-outline-variant">
+        <div class="footer grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-gutter">
+            <!-- Brand Column (col-span-2) -->
+            <div class="footer-brand-col lg:col-span-2">
+                <a href="index.html" class="footer-brand font-headline-lg">LUXE</a>
+                <p class="footer-desc font-body-sm text-on-surface">
+                    Crafting timeless elegance for the modern individual. Our pieces are more than products&mdash;they are statements of identity.
+                </p>
+            </div>
+            <!-- Shop Column -->
+            <div class="footer-col">
+                <h5>Shop</h5>
+                <ul>
+                    <li><a href="#">Shop All</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="#">Bespoke Service</a></li>
+                </ul>
+            </div>
+            <!-- About Column -->
+            <div class="footer-col">
+                <h5>About</h5>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Journal</a></li>
+                    <li><a href="#">Designers</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
+            <!-- Support Column -->
+            <div class="footer-col">
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping &amp; Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <!-- Social Column (with icon circles) -->
+            <div class="lg:col-span-1">
+                <h5 class="font-label-caps text-primary uppercase mb-md">Social</h5>
+                <div class="footer-social flex gap-md">
+                    <a href="#" class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all">
+                        <span class="material-symbols-outlined text-[18px]">public</span>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all">
+                        <span class="material-symbols-outlined text-[18px]">podcasts</span>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all">
+                        <span class="material-symbols-outlined text-[18px]">movie</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom border-t border-outline-variant/30">
+            <div class="footer-bottom-row flex flex-col md:flex-row justify-between items-center gap-md">
+                <p class="footer-copyright text-center md:text-left">&copy; 2024 LUXE. All rights reserved. Curated for the discerning eye.</p>
+                <div class="footer-payment-methods flex items-center gap-lg">
+                    <img alt="Visa" class="h-6 opacity-80"
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx-Abg9d9_5joNpX3Qr1_8YeUmJPxvlZqhOrTYxlYMFQjVEbbfMTLtoJDO7-DwsFY070Yl6oNUtRwQNodc2cxbvgRgJ1zO18qk-LgxzMuCl9cr70ykBo6oKLk8s3pBBBaaJnirJ6qO9uc2i0raXDg91J3ZJwrph7UhKAeo1JpnWkAOuot0B1MJ3OJHBy3ywaAOdysa5t0VekQK4Tsvx7U2s3es9IxWehL4GX4RMezFAd4dI9NmFWIW">
+                    <img alt="Mastercard" class="h-6 opacity-80"
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7y7PJ_HYpW68v2tcnzVXDeFDhIouxJx-mTqZvRxcYN2WXZxzJJj7TI-UKOCgo4WYTVdJx7mW6vhAITcNJ4Z-Tr5G9Cd6TsdWJVnsibDWilgP2oqxiUoSHiSyYiJYP0PL1KIBaSvgupD1qwskUiQqTtfcDGBimi9nLj9OVK6w2VMDcrj8b83NBfgMVAvqlopFSGsOJbUDuw-J7O2KS0idnPNzeswpGbVBAyY4VEa6yPgvLygskXAKS">
+                    <img alt="Amex" class="h-6 opacity-80"
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC3Skf1_bv0Eouew7NmZ0ufI7c5Y66_ZOZbBvZGLcnXAPBKoDy1fkg93IABTB6ijQ7PQZL1Qb2ZGdckOWx7XIQ8C_iIc6nEfLCN-pCWmDkWpE4Y8knJ5uD0tEXmUIwn9AB0arfk_vbXve-vSHpXE83MH8E2wg84gEXbpFV9cG5Cy7QGAx2HSy3do6quyiCcs1xxlnD27odOV22-aCmwqvHRMXis1wSE0lMXWj5DvPJPLmu8HqhwB8Y">
+                    <img alt="Apple Pay" class="h-6 opacity-80"
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgC9-aLQRKu0Cds1czW5y9seNlOofj2osqZLEOw-cdOdXOlG6THh5gKJ-yT1xs59HhDLpGIK6J9Q-Km9SI580RZMrWuVmyEonLs9TbWU7mDFFyvPDjPU2IdBjTQLiIAAik9BTuazuOnc_gEnwXHOj6LlIFOzxcaI0rZ75TuWVd4UN8IqxqEC-5vvX1t-wh4aXfWBSBDZjWvYoV9ZHXBUDyCgbYvwWYeniWX9sH0W6sSdoqdDPxq8aH">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Thumbnail gallery interaction
+        document.querySelectorAll('.pdp-thumbs .pdp-thumb-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.pdp-thumbs .pdp-thumb-btn').forEach(function(b) {
+                    b.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Color swatch selection
+        document.querySelectorAll('.pdp-color-swatch').forEach(function(swatch) {
+            swatch.addEventListener('click', function() {
+                document.querySelectorAll('.pdp-color-swatch').forEach(function(s) {
+                    s.classList.remove('active-swatch');
+                });
+                this.classList.add('active-swatch');
+            });
+        });
+    </script>
+
+</body>
+</html>

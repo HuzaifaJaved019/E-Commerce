@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | LUXE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/app.js" defer></script>
+    <style>
+        .cart-image-container {
+            aspect-ratio: 4/5;
+        }
+        .upsell-card:hover .quick-add-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .btn.primary {
+            background-color: var(--primary);
+            color: var(--on-primary);
+            border: 1px solid var(--primary);
+        }
+        .btn.primary:hover {
+            background-color: var(--on-primary-container);
+        }
+        .btn.secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        .btn.secondary:hover {
+            background-color: var(--surface-container-low);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+
+    <header class="top-nav">
+        <div class="top-nav-inner flex justify-between items-center w-full">
+            <div class="flex items-center gap-xl" style="gap: 48px;">
+                <a href="#" class="nav-brand font-display-lg">LUXE</a>
+                <nav class="nav-links">
+                    <a href="#" class="nav-link">Shop All</a>
+                    <a href="#" class="nav-link">Collections</a>
+                    <a href="#" class="nav-link">Designers</a>
+                    <a href="#" class="nav-link">Journal</a>
+                    <a href="#" class="nav-link">Bespoke</a>
+                </nav>
+            </div>
+            <div class="nav-icons">
+                <button class="nav-icon-btn material-symbols-outlined text-on-surface-variant">favorite</button>
+                <button class="nav-icon-btn material-symbols-outlined relative">
+                    shopping_bag
+                    <span class="cart-badge dark">2</span>
+                </button>
+                <button class="nav-icon-btn material-symbols-outlined text-on-surface-variant">person</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section fade-in-section">
+            <div class="section-inner">
+                <div class="mb-lg">
+                    <h1 class="font-headline-lg mb-xs">Your Cart</h1>
+                    <p class="font-body-md text-on-surface-variant">Review your selection before proceeding to checkout.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+
+                    <div class="lg:col-span-8 cart-items-list space-y-lg fade-in-section">
+
+                        <div class="cart-item bg-surface-container-lowest p-md flex gap-gutter border border-outline-variant transition-all hover:shadow-sm">
+                            <div class="w-32 md:w-40 cart-image-container bg-surface-container-low flex-shrink-0">
+                                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzoEbaElPAgWLjhGzJq2QUWUM-PTXQRhZ0aGuA1RGbp44FBCCyoRbJU4H3ihDIA8NCSmPzVXDpp-qxO3xgyS4pGxhNmrvo1E8e3kr7vTlrcJSMPy3F3OXxKiWGQgQZxJzUqNo8boWXq_WoxXejUhDpHzRJcUHIWMCfJSWwCHSvkFKS-5YmWbN4FCrNGmUJ_tgQtmM2YhWgYEGWKGrIgYGsOldO8-DP5FvE63MXxjUddGIxgpO9r1se" alt="Architectural Tote ivory">
+                            </div>
+                            <div class="flex flex-col justify-between flex-grow py-xs">
+                                <div class="flex justify-between">
+                                    <div>
+                                        <span class="font-label-caps text-on-surface-variant mb-xs block">ACCESSORIES</span>
+                                        <h3 class="font-headline-md font-body-lg">Architectural Tote</h3>
+                                        <p class="font-body-sm text-on-surface-variant">Ivory / One Size</p>
+                                    </div>
+                                    <p class="font-body-md font-semibold">Rs. 1,250.00</p>
+                                </div>
+                                <div class="flex justify-between items-end">
+                                    <div class="flex items-center border border-outline-variant bg-surface">
+                                        <button class="px-3 py-1 hover:bg-surface-container-highest transition-colors" onclick="decrement(this)">-</button>
+                                        <span class="px-4 py-1 font-body-sm border-x border-outline-variant">1</span>
+                                        <button class="px-3 py-1 hover:bg-surface-container-highest transition-colors" onclick="increment(this)">+</button>
+                                    </div>
+                                    <button class="flex items-center text-on-surface-variant hover:text-error transition-colors gap-xs">
+                                        <span class="material-symbols-outlined" style="font-size: 18px;">delete</span>
+                                        <span class="font-label-caps">Remove</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cart-item bg-surface-container-lowest p-md flex gap-gutter border border-outline-variant transition-all hover:shadow-sm">
+                            <div class="w-32 md:w-40 cart-image-container bg-surface-container-low flex-shrink-0">
+                                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLsepa_cY86AxPh8TpYrlgxHD5MXGJ9yhXXRACDHBeKjAH6wv7RBAGrDQG83zIt5Odis6mdIqxMB7YJ9ZHQ2aiwUOBLq5UGL_xylOGt9qa2a2izHJKowwgjRbym1nuTNSC0iJUmcwzmwlhM3eawMw8WokjRXxTIvJ2RuwYaIUNGF5gAAI9Skpkl6vtFOEJwapuwL_BBRMeTe60HzlAX5YRBqWUWANQh-1GUheruTW0h0pdHGdw9RJC" alt="Draped Silk Slip Dress">
+                            </div>
+                            <div class="flex flex-col justify-between flex-grow py-xs">
+                                <div class="flex justify-between">
+                                    <div>
+                                        <span class="font-label-caps text-on-surface-variant mb-xs block">READY TO WEAR</span>
+                                        <h3 class="font-headline-md font-body-lg">Draped Silk Slip Dress</h3>
+                                        <p class="font-body-sm text-on-surface-variant">Charcoal / Medium</p>
+                                    </div>
+                                    <p class="font-body-md font-semibold">Rs. 890.00</p>
+                                </div>
+                                <div class="flex justify-between items-end">
+                                    <div class="flex items-center border border-outline-variant bg-surface">
+                                        <button class="px-3 py-1 hover:bg-surface-container-highest transition-colors" onclick="decrement(this)">-</button>
+                                        <span class="px-4 py-1 font-body-sm border-x border-outline-variant">1</span>
+                                        <button class="px-3 py-1 hover:bg-surface-container-highest transition-colors" onclick="increment(this)">+</button>
+                                    </div>
+                                    <button class="flex items-center text-on-surface-variant hover:text-error transition-colors gap-xs">
+                                        <span class="material-symbols-outlined" style="font-size: 18px;">delete</span>
+                                        <span class="font-label-caps">Remove</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-md">
+                            <a class="flex items-center text-primary font-label-caps hover:gap-md transition-all gap-sm" href="collections.html">
+                                <span class="material-symbols-outlined" style="font-size: 16px;">arrow_back</span>
+                                Continue Shopping
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <aside class="lg:col-span-4 space-y-lg">
+                        <div class="cart-summary sticky top-28 space-y-lg">
+
+                            <div class="bg-white p-lg border border-outline-variant">
+                                <h2 class="font-headline-md mb-lg border-b border-outline-variant pb-sm">Order Summary</h2>
+                                <div class="space-y-md mb-lg">
+                                    <div class="flex justify-between font-body-md">
+                                        <span class="text-on-surface-variant">Subtotal</span>
+                                        <span>Rs. 2,140.00</span>
+                                    </div>
+                                    <div class="flex justify-between font-body-md">
+                                        <span class="text-on-surface-variant">Shipping</span>
+                                        <span class="text-secondary font-medium">Complimentary</span>
+                                    </div>
+                                    <div class="flex justify-between font-body-md">
+                                        <span class="text-on-surface-variant">Tax</span>
+                                        <span>Rs. 171.20</span>
+                                    </div>
+                                    <div class="pt-md border-t border-outline-variant flex justify-between font-headline-md">
+                                        <span>Total</span>
+                                        <span>Rs. 2,311.20</span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-lg">
+                                    <label class="font-label-caps mb-xs block text-on-surface-variant">Discount Code</label>
+                                    <div class="flex gap-sm">
+                                        <input class="flex-grow border border-outline-variant px-sm py-2 font-body-sm focus:outline-none focus:border-primary" type="text" placeholder="Enter code">
+                                        <button class="btn secondary">Apply</button>
+                                    </div>
+                                </div>
+
+                                <button class="btn primary w-full mb-md">
+                                    Proceed to Checkout
+                                    <span class="material-symbols-outlined" style="font-size: 16px;">lock</span>
+                                </button>
+
+                                <div class="flex flex-col items-center gap-md pt-md">
+                                    <p class="font-label-caps text-on-surface-variant" style="font-size: 10px; letter-spacing: 0.1em;">Guaranteed Secure Checkout</p>
+                                    <div class="flex gap-md opacity-60">
+                                        <span class="material-symbols-outlined" style="font-size: 24px;">credit_card</span>
+                                        <span class="material-symbols-outlined" style="font-size: 24px;">account_balance</span>
+                                        <span class="material-symbols-outlined" style="font-size: 24px;">payments</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-surface-container-low p-md border border-outline-variant border-dashed">
+                                <p class="font-body-sm text-on-surface-variant leading-relaxed">
+                                    <span class="font-semibold text-primary">LUXE Concierge:</span> Need assistance with your order? Our personal shoppers are available via live chat for sizing guidance and private styling.
+                                </p>
+                            </div>
+
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in-section">
+            <div class="section-inner">
+                <div class="flex items-end justify-between mb-lg">
+                    <h2 class="font-headline-lg">You Might Also Like</h2>
+                    <a class="font-label-caps border-b border-primary hover:pb-1 transition-all" href="#">View Curated List</a>
+                </div>
+
+                <div class="upsell-grid grid grid-cols-2 md:grid-cols-4 gap-gutter">
+
+                    <div class="upsell-card group cursor-pointer transition-all duration-700 ease-out">
+                        <div class="relative overflow-hidden aspect-[3/4] bg-surface-container-low mb-md">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz1vublzlAokBLB9gt65hxzUe-L4rmE2RBxXRQH0uuKmUbAmV7MZ0MqVwtAlO8mdw0ySC7Ivy0hjH1S2tEaj0Imk3bHm7WFSVsDOmJlOqvrtFYa6PUiR5Y64ujwJIrnDMHv_KO2yzX0gTsHLwtky0Rg-4LKPJjyNLcOPBn3mLqb20jA2VlLeDJ6vmOvd20N2cuEx08b7RVDApC8dPANZYnn-9vChR9VIZHpYf9T1Te2_1ISEBB-sJx" alt="Bespoke Aviator Frames">
+                            <button class="quick-add-btn absolute bottom-0 left-0 right-0 bg-primary/90 text-on-primary py-3 font-label-caps opacity-0 transform translate-y-2 transition-all duration-300">Quick Add</button>
+                        </div>
+                        <h4 class="font-body-md font-medium">Bespoke Aviator Frames</h4>
+                        <p class="font-body-sm text-on-surface-variant">Rs. 380.00</p>
+                    </div>
+
+                    <div class="upsell-card group cursor-pointer transition-all duration-700 ease-out">
+                        <div class="relative overflow-hidden aspect-[3/4] bg-surface-container-low mb-md">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACrRyc8gLOOnx6dmchfw30Q1lI5mATT8YXim_LJB7iYdGO_awzjnc-KckQFIBaPovlT-5ea69lcBil4hsR4gg6p-iriQr7-5yt1A4uvAxb_TWCe8yfmXF9Y7uqgrQYwgd4lIr7yjNXvJhvdm1RSgUg_47WYAs1fdMBTT-_g_CzXN8gnWOUmopJS8O0eA0cn9mKYghCeuLgdMZN_yjt9ssfCZCd6er5nQus6_LOIu9_egnfQWWBNYWn" alt="Hand-Woven Cashmere Scarf">
+                            <button class="quick-add-btn absolute bottom-0 left-0 right-0 bg-primary/90 text-on-primary py-3 font-label-caps opacity-0 transform translate-y-2 transition-all duration-300">Quick Add</button>
+                        </div>
+                        <h4 class="font-body-md font-medium">Hand-Woven Cashmere Scarf</h4>
+                        <p class="font-body-sm text-on-surface-variant">Rs. 520.00</p>
+                    </div>
+
+                    <div class="upsell-card group cursor-pointer transition-all duration-700 ease-out">
+                        <div class="relative overflow-hidden aspect-[3/4] bg-surface-container-low mb-md">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhm5cFFPdFMHuDWE9m6KD7fhD2Z8_gFRs9cuzTFSRYgQ3szeRTbMZkGH7kmlqwa_ETDR-_jqMMVk-s6iGV-JPxTFzgFvnoOOFrpzYv18hH13o_zF4bCyYBNcoQR7TLKCZ6c4WkKBguqsSp2HJ0toABT4vdS1vn1LK6TadY3axhqmk62zHAVbffKSYJcr7DoyobrQ67jwssZVuip_mAOe1JuKJfqORG59jQiiYZOV_03pjF1CRlz6EQ" alt="Noir Signature Candle">
+                            <button class="quick-add-btn absolute bottom-0 left-0 right-0 bg-primary/90 text-on-primary py-3 font-label-caps opacity-0 transform translate-y-2 transition-all duration-300">Quick Add</button>
+                        </div>
+                        <h4 class="font-body-md font-medium">Noir Signature Candle</h4>
+                        <p class="font-body-sm text-on-surface-variant">Rs. 95.00</p>
+                    </div>
+
+                    <div class="upsell-card group cursor-pointer transition-all duration-700 ease-out">
+                        <div class="relative overflow-hidden aspect-[3/4] bg-surface-container-low mb-md">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsRLlesv013Xq_WyiL4-KYW7H1p-NTq2ZmiIIpHA8HaicS-1I4r-oSgvgbvFYywNeOT3TwCb63zYl1w9Tfu1ugKuIKDekaSt3aQdONbVT5M-h2ui2rCzxgXWlqBc8GF9CebyTjN5CE1PqExC_sv_xukWeDeXxeaycjnLmSmk0r3CdKsd8U4bmWgWcturARv7NBfaz8c4Nu24eWrSxaF_FUSBgmleZT0Xlm2G4AJgOvJbTuZBjs0CDn" alt="Card Holder in Pebbled Leather">
+                            <button class="quick-add-btn absolute bottom-0 left-0 right-0 bg-primary/90 text-on-primary py-3 font-label-caps opacity-0 transform translate-y-2 transition-all duration-300">Quick Add</button>
+                        </div>
+                        <h4 class="font-body-md font-medium">Card Holder in Pebbled Leather</h4>
+                        <p class="font-body-sm text-on-surface-variant">Rs. 225.00</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full bg-surface-container-low border-t border-outline-variant fade-in-section">
+        <div class="footer-inner max-w-container mx-auto py-xl grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-gutter section-padding">
+            <div class="lg:col-span-2 footer-brand-col">
+                <div class="font-headline-lg text-primary mb-md">LUXE</div>
+                <p class="font-body-sm text-on-surface-variant max-w-xs mb-lg">Curated for the discerning eye. Our mission is to define timeless elegance through architectural precision and high-end craftsmanship.</p>
+                <div class="flex gap-md">
+                    <button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all">public</button>
+                    <button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all">alternate_email</button>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-sm">
+                <span class="font-label-caps text-primary mb-xs">Service</span>
+                <a class="font-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">About Us</a>
+                <a class="font-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Contact</a>
+                <a class="font-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">FAQs</a>
+            </div>
+
+            <div class="flex flex-col gap-sm">
+                <span class="font-label-caps text-primary mb-xs">Legal</span>
+                <a class="font-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Shipping &amp; Returns</a>
+                <a class="font-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a>
+                <a class="font-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Terms of Service</a>
+            </div>
+
+            <div class="lg:col-span-2 flex flex-col items-start lg:items-end">
+                <span class="font-label-caps text-primary mb-md">Newsletter</span>
+                <p class="font-body-sm text-on-surface-variant mb-md lg:text-right">Join the LUXE circle for exclusive releases and editorial insights.</p>
+                <div class="flex w-full max-w-xs border-b border-primary">
+                    <input class="bg-transparent border-none py-2 px-0 font-body-sm w-full focus:outline-none placeholder:text-on-surface-variant/50" type="email" placeholder="Email Address">
+                    <button class="material-symbols-outlined text-primary">arrow_forward</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom max-w-container mx-auto py-md border-t border-outline-variant/30 text-center md:text-left section-padding">
+            <p class="font-label-caps text-on-surface-variant" style="font-size: 10px;">&copy; 2024 LUXE. All rights reserved. Curated for the discerning eye.</p>
+        </div>
+    </footer>
+
+    <script>
+        function increment(btn) {
+            const span = btn.parentElement.querySelector('span');
+            let val = parseInt(span.innerText);
+            span.innerText = val + 1;
+            updateCart();
+        }
+
+        function decrement(btn) {
+            const span = btn.parentElement.querySelector('span');
+            let val = parseInt(span.innerText);
+            if (val > 1) {
+                span.innerText = val - 1;
+                updateCart();
+            }
+        }
+
+        function updateCart() {
+            console.log('Cart updating...');
+        }
+
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.upsell-card').forEach(card => {
+            card.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-700', 'ease-out');
+            observer.observe(card);
+        });
+    </script>
+
+</body>
+</html>

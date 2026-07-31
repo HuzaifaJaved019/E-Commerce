@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE | Curated Luxury E-Commerce</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/app.js" defer></script>
+</head>
+<body class="bg-surface text-on-surface">
+
+    <!-- Top Navigation -->
+    <header class="top-nav">
+        <div class="top-nav-inner flex justify-between items-center w-full">
+            <div class="flex items-center gap-xl" style="gap: 48px;">
+                <a href="#" class="nav-brand font-display-lg">LUXE</a>
+                <nav class="nav-links">
+                    <a href="#" class="nav-link active">Shop All</a>
+                    <a href="#" class="nav-link">Collections</a>
+                    <a href="#" class="nav-link">Designers</a>
+                    <a href="#" class="nav-link">Journal</a>
+                    <a href="#" class="nav-link">Bespoke</a>
+                </nav>
+            </div>
+            <div class="nav-icons">
+                <button class="nav-icon-btn material-symbols-outlined">search</button>
+                <button class="nav-icon-btn material-symbols-outlined">favorite</button>
+                <button class="nav-icon-btn material-symbols-outlined relative">
+                    shopping_bag
+                    <span class="cart-badge">2</span>
+                </button>
+                <button class="nav-icon-btn material-symbols-outlined">person</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-section h-90vh relative overflow-hidden fade-in-section">
+            <div class="hero-bg absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDSn-_QajH7epCNwIJTx7K87LB4d2-voiURrfEkIsRUG5oLRTqest2FKrEtoxlgV5B-71gUyHXuQ7eqEkL02GY7-md3AEL-7j3Gb3gxcvXgMCvFMYvlVVFiPOdqG-hnF8cNw1D4cXUHvEg5lgxs98apSRoUBfiXl6e_yQ8jsyutsvjpB9XBd9NAi9PlVKm5wSvk_gUn1kzy6EkEz8QxEiskCpFZZpMO4-qE-dlX-s1JKOacb0x7wj-c');"></div>
+            <div class="hero-gradient absolute inset-0"></div>
+            <div class="hero-content relative h-full flex flex-col justify-end pb-xl">
+                <div class="hero-inner max-w-3xl">
+                    <span class="font-label-caps text-white mb-md block" style="letter-spacing: 0.2em;">AUTUMN WINTER 2024</span>
+                    <h1 class="font-display-lg text-white mb-lg leading-tight">Artistry in every <br>essential detail.</h1>
+                    <div class="hero-actions flex items-center">
+                        <a href="#" class="btn primary btn-lg">Shop Now</a>
+                        <a href="#" class="hero-btn-secondary font-label-caps py-sm">Explore Collections</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Banner -->
+        <section class="trust-banner fade-in-section">
+            <div class="trust-banner-inner">
+                <div class="trust-item">
+                    <span class="material-symbols-outlined icon">local_shipping</span>
+                    <p class="font-label-caps">Global Express Delivery</p>
+                </div>
+                <div class="trust-item">
+                    <span class="material-symbols-outlined icon">replay</span>
+                    <p class="font-label-caps">30-Day Bespoke Returns</p>
+                </div>
+                <div class="trust-item">
+                    <span class="material-symbols-outlined icon">verified_user</span>
+                    <p class="font-label-caps">Encrypted Checkout</p>
+                </div>
+                <div class="trust-item">
+                    <span class="material-symbols-outlined icon">diamond</span>
+                    <p class="font-label-caps">Artisan Craftsmanship</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Categories Bento Grid -->
+        <section class="section fade-in-section">
+            <div class="section-inner">
+                <div class="section-header">
+                    <div class="space-y-sm">
+                        <span class="font-label-caps section-eyebrow">CURATED EDITS</span>
+                        <h2 class="font-headline-lg section-title">Explore by Category</h2>
+                    </div>
+                    <a href="#" class="section-link font-label-caps">VIEW ALL CATEGORIES</a>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-card-large group">
+                        <div class="category-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSBqVJSyfibjeIAbHZWJjmUU2QTBrx1ofwvWGVOQw377eLgUq-zdvaNJO8m57SHhLGLsrBi_uS1VCHYm9WRYCJmPlsLkMLZEiqDrAyrmvKgD4aEj_7_DisEhXE-QdzPeL1uduRalmzXtXWbdVjYGtdTKfQukayWfCOZou-NawPRRT3x9PHZHHjg-3GLB5jH7Sx_oy7XcS0SGZciTqv79GUSCIPazX9omP-3BiZG1r3pyt9CvD45fP0');"></div>
+                        <div class="category-overlay"></div>
+                        <div class="category-content-large">
+                            <h3 class="font-headline-md category-title">Home &amp; Living</h3>
+                            <span class="category-cta font-label-caps">DISCOVER</span>
+                        </div>
+                    </div>
+                    <div class="category-card-small-col">
+                        <div class="category-card-small group">
+                            <div class="category-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzbJET7bvXFcoZLvkyg6eZUO4AVpA2ZcWBbHpEkBXQpAkA6Ayjxzqjp7LsjGua028nWZ6iyRTwbupcnU9ItfT9igee6-1dPshUPtem8hfFIvZHxPpn8rtDWS4dkHLRWnNv3ZDP7WZthOg1hT1iHAx07vGlaU5dnpydimqnMMP-tiYIfzT39vmzI4KQNKJSVuIYIkegUKU4XkBKuU464ZTqePw94bfRUVhDS2EofWCoqAx3s4midzfP');"></div>
+                            <div class="category-overlay"></div>
+                            <div class="category-content-small">
+                                <h3 class="font-headline-md category-title">Accessories</h3>
+                            </div>
+                        </div>
+                        <div class="category-card-small group">
+                            <div class="category-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDNxfyZsZ7ML5d3Kzyb8KUeYR_ii9YJZiEZip5pNAhMWv5rhRkixhhhlUJ026Fx-XWBqHe14woftkzzxLK1cQQ4gaGk5QKZXzF4pJ7Cy0EPJiy8yXeCLKzpV8Dd53p0bZ9tiCMEVrpJxeinaEkDNVo0SV3KbIZZUSCwgV8d7AvJDveDJc3xSGUCCBgkm0EE4gQh9KoiIPksTrGBMhD1Lxpc83Nm3N0Q7lPy7dj7veXPpID71fZ2CrlH');"></div>
+                            <div class="category-overlay"></div>
+                            <div class="category-content-small">
+                                <h3 class="font-headline-md category-title">The Journal</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Iconic Best Sellers -->
+        <section class="section section-bg-light fade-in-section">
+            <div class="section-inner">
+                <div class="section-header-center">
+                    <span class="font-label-caps section-eyebrow" style="letter-spacing: 0.2em;">COLLECTOR'S CHOICE</span>
+                    <h2 class="font-headline-lg section-title">Iconic Best Sellers</h2>
+                </div>
+                <div class="product-grid cols-4">
+                    <!-- Product Card 1 -->
+                    <div class="product-card group">
+                        <div class="product-image-wrap">
+                            <div class="product-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBDPsOnIlIBfGpvkIl9cmuaspE0IJAAdI5tGp8yX0n5wjH_WtheslGWcW2sPKx5BQstUCeN2bhGpyAtiPg8NUjcnxF1CT884rLqZzhmHA0RYqvc49zr_NnD6fKMG5-hwZSCViTqOMZ1TGwBsphP-oxcII5s5dDig0ZuAwqPuWu3Kpt6HbKNlY-Lx7982n8_Agd-h-Xn1qUg3QjVv39IxRN7AOsViW4wzpBhXV6ePcbafTjJfMxXoZ97');"></div>
+                            <span class="product-badge font-label-caps">BEST SELLER</span>
+                            <button class="product-wishlist-btn">
+                                <span class="material-symbols-outlined">favorite</span>
+                            </button>
+                            <div class="product-quick-add">
+                                <button class="quick-add-btn">Quick Add</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category font-label-caps">APPAREL</p>
+                            <h3 class="product-name font-body-md font-semibold">Cashmere Oversized Sweater</h3>
+                            <p class="product-price font-body-sm font-bold">Rs. 117,600</p>
+                        </div>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div class="product-card group">
+                        <div class="product-image-wrap">
+                            <div class="product-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRe7fFwunPIfuvMM9Anxd6kaBVH5RKKK7Pht3Hcq9m0UzauvBTkgTXoQnMC009n-IdYe0EJAYD7LwLUVsu788a0qUieagvX-b8sYCGTSB6Y9Kphpnv7l-SwD_2b5YY-NquGs2asTUZwc8Gcu7jA28m9MH1H2suuOuz7McJI3cajdEhDS-yz8tchVoSqWExnyFqHPWx0Hl3doRv1s62c2W7D8lhLqZ0nggE94dwwgJ_sAD3j1X1Ye1Z');"></div>
+                            <button class="product-wishlist-btn">
+                                <span class="material-symbols-outlined">favorite</span>
+                            </button>
+                            <div class="product-quick-add">
+                                <button class="quick-add-btn">Quick Add</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category font-label-caps">LIFESTYLE</p>
+                            <h3 class="product-name font-body-md font-semibold">Emerald Moss Candle</h3>
+                            <p class="product-price font-body-sm font-bold">Rs. 23,800</p>
+                        </div>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div class="product-card group">
+                        <div class="product-image-wrap">
+                            <div class="product-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3c_EJ2MgnTSYakl7oVTLFumxQFoR1MxsXuAKhUAjYG1udZldipamu_Bh0ousSxO9FD4qbsXpS6HhYV1BxoTTrOZtNn_7MyH9zIPELz5TYTRcAamUjDyfr6KXS9bfQcsSo-PBtAog4soS4E0EaQwFiQaxQBoBn2kiB71nW4JTreUvgkfv9uhQW-T60-vT9IpzsyEJxQlfP1lR1m3v55gveywnpSfBojuGH5XSa-t3n27fG3D4T-3HU');"></div>
+                            <span class="product-badge product-badge-secondary font-label-caps">LIMITED EDITION</span>
+                            <button class="product-wishlist-btn">
+                                <span class="material-symbols-outlined">favorite</span>
+                            </button>
+                            <div class="product-quick-add">
+                                <button class="quick-add-btn">Quick Add</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category font-label-caps">TIMEPIECES</p>
+                            <h3 class="product-name font-body-md font-semibold">The Sovereign Chrono</h3>
+                            <p class="product-price font-body-sm font-bold">Rs. 518,000</p>
+                        </div>
+                    </div>
+                    <!-- Product Card 4 -->
+                    <div class="product-card group">
+                        <div class="product-image-wrap">
+                            <div class="product-image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAV1QrvG53z-MoaElzOeFfijChBYoC9j8cN2mmTOuButM9sp2QPsFu4WXAwxmobCdkRmDSTSO8a1_SGxg9EwudL7PS4095OvpQTgvJz2C5Jdu6K5NZ99bZYj-94KJTRbvRco4589vYnG1zGt75rCr9aVvLse-a85xOIazLHRazZ0sVPHDfljLtpZcwayyFktpRZEub5xgIAV1RCGCyWPafXd1Dfcuzx4V8pEfbGekaZCnUqEVrpBho9');"></div>
+                            <button class="product-wishlist-btn">
+                                <span class="material-symbols-outlined">favorite</span>
+                            </button>
+                            <div class="product-quick-add">
+                                <button class="quick-add-btn">Quick Add</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category font-label-caps">FOOTWEAR</p>
+                            <h3 class="product-name font-body-md font-semibold">Artisan Chelsea Boot</h3>
+                            <p class="product-price font-body-sm font-bold">Rs. 190,400</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us 2-col Grid -->
+        <section class="section fade-in-section">
+            <div class="section-inner">
+                <div class="why-section">
+                    <div class="why-image overflow-hidden">
+                        <div class="why-image-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhAuhHRaWIZkD3qoN9vx27SlBlLQFZXTdBWJquHFSWFOkNOZzDGGZ35f4ggxf_ATdYYgqLh7UcrOiytTBf5vL469qAcWVZ5zToVKbADgFrxco7gCVQys7K2Lta-ZNMUgNWYEOI5mhi5xw8M8B8Spx8ysFh-A2JkPfhXpa6Pdfuv5wHwGM7-AGLwayttIlURXsAxCze6MECmULh_eTLlwJtCvVLWB7n2PoOCmpzaiF_3f6PCu9msxnE');"></div>
+                    </div>
+                    <div class="why-content">
+                        <span class="font-label-caps section-eyebrow" style="letter-spacing: 0.2em;">OUR COMMITMENT</span>
+                        <h2 class="why-title font-headline-lg">Uncompromising Craftsmanship. <br>Refined by Design.</h2>
+                        <p class="why-desc font-body-lg">We believe luxury isn't found in excess, but in the thoughtful curation of the extraordinary. Every piece in our collection is hand-selected and verified for architectural integrity and timeless aesthetic value.</p>
+                        <div class="why-features">
+                            <div class="why-feature space-y-xs">
+                                <span class="material-symbols-outlined icon">auto_awesome</span>
+                                <h4 class="font-headline-md text-primary" style="font-size: 18px;">Curated Exclusivity</h4>
+                                <p class="font-body-sm text-on-surface-variant">Limited production runs to ensure your collection remains unique.</p>
+                            </div>
+                            <div class="why-feature space-y-xs">
+                                <span class="material-symbols-outlined icon">eco</span>
+                                <h4 class="font-headline-md text-primary" style="font-size: 18px;">Ethical Sourcing</h4>
+                                <p class="font-body-sm text-on-surface-variant">Materials sourced with respect for heritage and the environment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dark Testimonials Section -->
+        <section class="section section-bg-dark fade-in-section">
+            <div class="testimonials-inner">
+                <div class="section-header-center">
+                    <span class="font-label-caps section-eyebrow-dark" style="letter-spacing: 0.2em;">VOICE OF EXCELLENCE</span>
+                    <h2 class="font-headline-lg section-title section-title-light mt-sm">The LUXE Experience</h2>
+                </div>
+                <div class="testimonials-slider hide-scrollbar">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card snap-center">
+                        <div>
+                            <div class="testimonial-stars flex gap-xs">
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                            </div>
+                            <blockquote class="testimonial-quote font-headline-md italic leading-relaxed">
+                                "The attention to detail in the packaging alone was a statement. The quality of the cashmere is unparalleled. Truly a silent curator of style."
+                            </blockquote>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB1t1xUesfcNqQs3zulYAKQH6Ht3PeoqJVksfZcD9Q2TfYUTz3WF64F4e_Icab-YxysFN8oIFPV7Xxe9gtNjjRQy2XSrmXuzIkcViVAtL0zpvXqpQa8_6MXkeBZf8tjGs1kcxDvhsevGTI_0g8KnFjtTeKB_Jyr9wRbfKkhJSsk9DGrHBHxmp09VfoLZsat5GjsWNVMW8U1juIsiS3DIoRZmqQbnqmTwKyCguk_apNqS3ZFMUJdzIGr');"></div>
+                            <div>
+                                <p class="testimonial-author-name font-label-caps">Elena V.</p>
+                                <p class="testimonial-author-role font-body-sm">Verified Collector</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card snap-center">
+                        <div>
+                            <div class="testimonial-stars flex gap-xs">
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                            </div>
+                            <blockquote class="testimonial-quote font-headline-md italic leading-relaxed">
+                                "Fast shipping across the ocean and the items were impeccably protected. LUXE is my destination for finding pieces that actually last."
+                            </blockquote>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBFBrsyS0QhtZ91CtR4BqmgHaECeuLrWtfiNtN7J5O5i-FoOYImDBnzYXC0brxMwKkIRFQvao34gJjPKo1wg0BilpLbXFV8izJvY42AGMO1NLnbXj1Ce4A0GVTelpbsUq33wW58ty1ZCBu0xEQlSZdUaKIeBuPkWdAQk9uB1EqKRk-gPS5tbrXEPcOVSy-Pit94LM-QJp3drw9Td1rGhAofmzKBnhiZJj9XifUbVpTstE3Fp2jMActY');"></div>
+                            <div>
+                                <p class="testimonial-author-name font-label-caps">Julian R.</p>
+                                <p class="testimonial-author-role font-body-sm">Bespoke Client</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card snap-center">
+                        <div>
+                            <div class="testimonial-stars flex gap-xs">
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                                <span class="material-symbols-outlined">star</span>
+                            </div>
+                            <blockquote class="testimonial-quote font-headline-md italic leading-relaxed">
+                                "Their customer service is more like a personal concierge. They helped me find the perfect gift and even personalized the note."
+                            </blockquote>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBijBUOxLioB5zLcdv6BzOxxY_Vlr8BIvGvk6-CfC9Z37XqbsjPBBcZe1BZpxLWa0ytWjrUk1w-X7LUrkDnazIWtqqzuGmt7a0_rzDXBr2nQorv_i85BBAlfMIO0PKukV4AN5ZGFfDu2x_s7hcawMiMmQ3i88eMJxXQiEVVZmb6RggsTSx5MQ1X0k4srE2G2JaJBf8CtMEuDv63uCWKBcZtpuclVCCotpMi3xypS-s78TxL-zPV0Euv');"></div>
+                            <div>
+                                <p class="testimonial-author-name font-label-caps">Sarah M.</p>
+                                <p class="testimonial-author-role font-body-sm">Inner Circle Member</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="section fade-in-section">
+            <div class="newsletter-inner">
+                <span class="material-symbols-outlined newsletter-icon">mail</span>
+                <h2 class="newsletter-title font-headline-lg" style="font-size: 40px;">Join the Inner Circle</h2>
+                <p class="newsletter-desc font-body-lg">Receive exclusive access to private collections and editorial insights. Enjoy 10% off your inaugural purchase.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault();">
+                    <div class="newsletter-form-row">
+                        <input type="email" class="newsletter-input font-body-md flex-grow" placeholder="Your email address">
+                        <button type="submit" class="btn primary">Subscribe</button>
+                    </div>
+                </form>
+                <p class="newsletter-note font-body-sm pt-sm">Privacy is a luxury we respect. Unsubscribe anytime.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer 6-col Grid -->
+    <footer class="footer grid grid-cols-6 gap-gutter">
+        <div class="footer-brand-col">
+            <a href="#" class="footer-brand font-headline-lg">LUXE</a>
+            <p class="footer-desc font-body-sm">
+                © 2024 LUXE. All rights reserved. Curated for the discerning eye.
+            </p>
+            <div class="footer-social">
+                <a href="#" class="material-symbols-outlined">public</a>
+                <a href="#" class="material-symbols-outlined">share</a>
+                <a href="#" class="material-symbols-outlined">camera</a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h5 class="font-label-caps mb-md">Collections</h5>
+            <ul>
+                <li><a href="#" class="font-body-sm">The Essentials</a></li>
+                <li><a href="#" class="font-body-sm">New Arrivals</a></li>
+                <li><a href="#" class="font-body-sm">Bespoke Series</a></li>
+                <li><a href="#" class="font-body-sm">Archives</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5 class="font-label-caps mb-md">Assistance</h5>
+            <ul>
+                <li><a href="#" class="font-body-sm">FAQs</a></li>
+                <li><a href="#" class="font-body-sm">Shipping &amp; Returns</a></li>
+                <li><a href="#" class="font-body-sm">Size Guide</a></li>
+                <li><a href="#" class="font-body-sm">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5 class="font-label-caps mb-md">About</h5>
+            <ul>
+                <li><a href="#" class="font-body-sm">Our Story</a></li>
+                <li><a href="#" class="font-body-sm">Craftsmanship</a></li>
+                <li><a href="#" class="font-body-sm">Sustainability</a></li>
+                <li><a href="#" class="font-body-sm">Journal</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5 class="font-label-caps mb-md">Legal</h5>
+            <ul>
+                <li><a href="#" class="font-body-sm">Privacy Policy</a></li>
+                <li><a href="#" class="font-body-sm">Terms of Service</a></li>
+                <li><a href="#" class="font-body-sm">Cookies</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>

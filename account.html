@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE | My Account</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/app.js" defer></script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-card {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+        }
+        .btn.primary {
+            background-color: var(--primary);
+            color: var(--on-primary);
+            border: 1px solid var(--primary);
+        }
+        .btn.primary:hover {
+            opacity: 0.9;
+        }
+        .account-main {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding-left: var(--margin-desktop);
+            padding-right: var(--margin-desktop);
+            padding-top: var(--stack-xl);
+            padding-bottom: var(--stack-xl);
+        }
+        .account-welcome-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: var(--gutter);
+            gap: var(--stack-md);
+        }
+        .account-layout {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: var(--gutter);
+        }
+        .account-sidebar {
+            grid-column: span 3 / span 3;
+            display: flex;
+            flex-direction: column;
+            gap: var(--stack-xs);
+        }
+        .account-sidebar a,
+        .account-sidebar button {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            border-radius: var(--rounded-lg);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            background: none;
+            text-align: left;
+            width: 100%;
+        }
+        .account-sidebar a:hover,
+        .account-sidebar button:hover {
+            background-color: var(--surface-container);
+        }
+        .account-sidebar a.active {
+            background-color: var(--primary);
+            color: var(--on-primary);
+        }
+        .account-sidebar .sidebar-divider {
+            height: 1px;
+            background-color: var(--outline-variant);
+            margin: var(--stack-sm) 0;
+        }
+        .account-sidebar .signout-btn {
+            background-color: var(--secondary-container);
+            color: var(--on-secondary-container);
+            margin-top: auto;
+            align-self: flex-start;
+            justify-content: flex-start;
+        }
+        .account-sidebar .signout-btn:hover {
+            opacity: 0.9;
+            background-color: var(--secondary-container);
+        }
+        .account-content {
+            grid-column: span 9 / span 9;
+            display: flex;
+            flex-direction: column;
+            gap: var(--gutter);
+        }
+        .account-dashboard-bento {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: var(--gutter);
+        }
+        .bento-card {
+            background-color: var(--surface-container-lowest);
+            border: 1px solid var(--outline-variant);
+            border-radius: var(--rounded-lg);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+        .bento-card.padded {
+            padding: var(--stack-lg);
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--stack-md);
+        }
+        .card-header.no-mb {
+            margin-bottom: 0;
+        }
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: var(--rounded-full);
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 16px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .status-pill.shipped {
+            background-color: var(--secondary-container);
+            color: var(--on-secondary-container);
+        }
+        .status-pill.processing {
+            background-color: var(--surface-container-highest);
+            color: var(--on-surface-variant);
+        }
+        .status-pill.delivered {
+            background-color: var(--secondary-fixed);
+            color: var(--on-secondary-fixed-variant);
+        }
+        .detail-row {
+            margin-bottom: var(--stack-md);
+        }
+        .detail-row:last-child {
+            margin-bottom: 0;
+        }
+        .detail-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 16px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--outline);
+        }
+        .detail-value {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            color: var(--on-surface);
+        }
+        .tracking-card {
+            grid-column: span 2 / span 2;
+            display: flex;
+            flex-direction: column;
+        }
+        .tracking-header {
+            padding: var(--stack-lg);
+            border-bottom: 1px solid var(--outline-variant);
+        }
+        .tracking-body {
+            padding: var(--stack-lg);
+            flex-grow: 1;
+        }
+        .tracking-content {
+            display: flex;
+            gap: var(--gutter);
+            flex-direction: row;
+        }
+        .tracking-img-wrap {
+            width: 96px;
+            height: 128px;
+            flex-shrink: 0;
+            background-color: var(--surface-container);
+            position: relative;
+        }
+        .tracking-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .tracking-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--stack-sm);
+        }
+        .tracking-info-top {
+            display: flex;
+            justify-content: space-between;
+        }
+        .tracking-progress {
+            margin-top: var(--stack-lg);
+            position: relative;
+        }
+        .tracking-progress-lines {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .tracking-line-bg {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--surface-variant);
+            transform: translateY(-50%);
+        }
+        .tracking-line-filled {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 66.67%;
+            height: 2px;
+            background-color: var(--primary);
+            transform: translateY(-50%);
+            transition: all 1000ms ease;
+        }
+        .tracking-step {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .tracking-step-circle {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+        .tracking-step-circle.large {
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            color: var(--on-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 4px var(--surface-container-lowest);
+        }
+        .tracking-step-circle.large span {
+            font-size: 12px;
+        }
+        .tracking-step-circle.outline {
+            background-color: var(--surface-variant);
+        }
+        .tracking-step-label {
+            position: absolute;
+            top: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 16px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .tracking-step-circle.large + .tracking-step-label {
+            top: 24px;
+            font-weight: 700;
+        }
+        .tracking-step-circle.outline + .tracking-step-label {
+            color: var(--outline);
+        }
+        .tracking-bottom {
+            margin-top: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .tracking-estimate {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            color: var(--on-surface-variant);
+            font-style: italic;
+        }
+        .tracking-history-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 16px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: opacity 0.3s ease;
+        }
+        .tracking-history-link:hover {
+            opacity: 0.7;
+        }
+        .orders-card-header {
+            padding: var(--stack-lg);
+            border-bottom: 1px solid var(--outline-variant);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .view-all-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 16px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--outline);
+            transition: color 0.3s ease;
+        }
+        .view-all-link:hover {
+            color: var(--primary);
+        }
+        .orders-table-wrap {
+            overflow-x: auto;
+        }
+        .orders-table {
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+        }
+        .orders-table thead tr {
+            background-color: var(--surface-container-low);
+            border-bottom: 1px solid var(--outline-variant);
+        }
+        .orders-table thead th {
+            padding: 16px var(--stack-lg);
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 16px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--outline);
+        }
+        .orders-table thead th.text-right {
+            text-align: right;
+        }
+        .orders-table tbody tr {
+            border-bottom: 1px solid var(--outline-variant);
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        .orders-table tbody tr:hover {
+            background-color: rgba(242, 244, 246, 0.5);
+        }
+        .orders-table tbody tr:last-child {
+            border-bottom: none;
+        }
+        .orders-table tbody td {
+            padding: 20px var(--stack-lg);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+        }
+        .orders-table tbody td.order-id {
+            font-weight: 500;
+            color: var(--primary);
+        }
+        .orders-table tbody td.order-date {
+            color: var(--on-surface-variant);
+        }
+        .orders-table tbody td.order-total {
+            text-align: right;
+            color: var(--primary);
+        }
+        .account-bottom-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--gutter);
+        }
+        .address-row {
+            display: flex;
+            gap: var(--stack-md);
+        }
+        .address-icon {
+            color: var(--outline);
+            flex-shrink: 0;
+        }
+        .address-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 24px;
+            color: var(--primary);
+        }
+        .address-detail {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            color: var(--on-surface-variant);
+        }
+        .payment-method-row {
+            display: flex;
+            align-items: center;
+            gap: var(--stack-md);
+            padding: 16px;
+            background-color: var(--surface);
+            border: 1px solid var(--outline-variant);
+            border-radius: var(--rounded-lg);
+        }
+        .visa-logo {
+            width: 48px;
+            height: 32px;
+            background-color: var(--primary);
+            color: var(--on-primary);
+            border-radius: var(--rounded);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 10px;
+            flex-shrink: 0;
+        }
+        .payment-info {
+            flex-grow: 1;
+        }
+        .payment-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 16px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--outline);
+        }
+        .payment-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            color: var(--primary);
+        }
+        .payment-expiry {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            color: var(--outline);
+        }
+        .account-footer-wrap {
+            background-color: var(--surface-container-low);
+            border-top: 1px solid var(--outline-variant);
+            margin-top: var(--stack-xl);
+        }
+        .account-footer-grid {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: var(--stack-xl) var(--margin-desktop);
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: var(--gutter);
+        }
+        .account-footer-col-2 {
+            grid-column: span 2 / span 2;
+        }
+        .account-footer-brand {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 40px;
+            letter-spacing: -0.01em;
+            color: var(--primary);
+            margin-bottom: var(--stack-md);
+            display: block;
+        }
+        .account-footer-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            color: var(--on-surface-variant);
+            max-width: 320px;
+        }
+        .account-footer-col h5 {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 16px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: var(--stack-md);
+        }
+        .account-footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .account-footer-col ul li a {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            color: var(--on-surface-variant);
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        .account-footer-col ul li a:hover {
+            color: var(--primary);
+        }
+        .account-footer-social-col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-start;
+        }
+        .account-footer-social-row {
+            display: flex;
+            gap: var(--stack-md);
+            align-items: center;
+        }
+        .account-footer-social-row a {
+            font-size: 24px;
+            color: var(--on-surface-variant);
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        .account-footer-social-row a:hover {
+            color: var(--primary);
+        }
+        .account-footer-bottom {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: var(--stack-md) var(--margin-desktop);
+            border-top: 1px solid rgba(198, 198, 205, 0.3);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--stack-md);
+        }
+        .account-footer-copyright {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 16px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--outline);
+        }
+        .account-footer-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 16px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--outline);
+            font-style: italic;
+        }
+        .fade-in-section {
+            opacity: 1;
+        }
+        .sign-out-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            color: var(--on-surface-variant);
+            transition: color 0.3s ease;
+        }
+        .sign-out-link:hover {
+            color: var(--primary);
+        }
+        .sign-out-link strong {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        .edit-icon-btn,
+        .add-icon-btn {
+            color: var(--outline);
+            transition: color 0.3s ease;
+            cursor: pointer;
+            font-size: 24px;
+            padding: 4px;
+            border-radius: var(--rounded);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .edit-icon-btn:hover,
+        .add-icon-btn:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+
+    <!-- Top Navigation -->
+    <header class="sticky top-0 w-full z-50 bg-surface-container-lowest border-b border-outline-variant shadow-sm">
+        <nav class="max-w-container mx-auto px-lg py-md flex justify-between items-center" style="padding-left: var(--margin-desktop); padding-right: var(--margin-desktop);">
+            <div class="flex items-center gap-lg" style="gap: 48px;">
+                <a class="font-display-lg text-primary tracking-tighter" href="#" style="font-size: 32px; letter-spacing: -0.02em;">LUXE</a>
+                <div class="flex gap-gutter items-center" style="gap: 32px;">
+                    <a class="font-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Shop All</a>
+                    <a class="font-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Collections</a>
+                    <a class="font-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Designers</a>
+                    <a class="font-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Journal</a>
+                    <a class="font-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Bespoke</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-md" style="gap: 16px;">
+                <button class="material-symbols-outlined p-sm hover:bg-surface-container transition-colors rounded-full" style="padding: 8px; border-radius: 50%;">search</button>
+                <button class="material-symbols-outlined p-sm hover:bg-surface-container transition-colors rounded-full" style="padding: 8px; border-radius: 50%;">favorite</button>
+                <button class="material-symbols-outlined p-sm hover:bg-surface-container transition-colors rounded-full relative" style="padding: 8px; border-radius: 50%; position: relative;">
+                    shopping_bag
+                    <span class="cart-badge" style="position: absolute; top: -4px; right: -4px; background-color: var(--secondary); color: var(--on-secondary); font-size: 10px; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700;">2</span>
+                </button>
+                <button class="material-symbols-outlined filled p-sm rounded-full icon-active" style="padding: 8px; border-radius: 50%; background-color: var(--primary); color: var(--on-primary);">person</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Account Content -->
+    <main class="account-main">
+
+        <!-- Welcome Header -->
+        <section class="fade-in-section">
+            <div class="account-welcome-row">
+                <div>
+                    <h1 class="font-display-lg text-primary" style="font-size: 48px;">Hello, Alexander.</h1>
+                </div>
+                <div>
+                    <a href="#" class="sign-out-link">Not you? <strong>Sign Out</strong></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Layout: 12-col Grid -->
+        <section class="fade-in-section">
+            <div class="account-layout">
+
+                <!-- Sidebar (3-col) -->
+                <aside class="account-sidebar">
+                    <a href="#" class="active">
+                        <span class="material-symbols-outlined filled">dashboard</span>
+                        Dashboard
+                    </a>
+                    <a href="#">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        Orders
+                    </a>
+                    <a href="#">
+                        <span class="material-symbols-outlined">favorite</span>
+                        Wishlist
+                    </a>
+                    <a href="#">
+                        <span class="material-symbols-outlined">location_on</span>
+                        Addresses
+                    </a>
+                    <a href="#">
+                        <span class="material-symbols-outlined">credit_card</span>
+                        Payment Methods
+                    </a>
+                    <a href="#">
+                        <span class="material-symbols-outlined">settings</span>
+                        Settings
+                    </a>
+                    <div class="sidebar-divider"></div>
+                    <button class="signout-btn">
+                        <span class="material-symbols-outlined">logout</span>
+                        Signout
+                    </button>
+                </aside>
+
+                <!-- Content (9-col) -->
+                <div class="account-content">
+
+                    <!-- Bento Dashboard Grid (3-col) -->
+                    <div class="account-dashboard-bento">
+
+                        <!-- Personal Details (col-span-1) -->
+                        <div class="bento-card padded">
+                            <div class="card-header">
+                                <h3 class="font-headline-md text-headline-md">Personal Details</h3>
+                                <span class="material-symbols-outlined text-outline">verified_user</span>
+                            </div>
+                            <div>
+                                <div class="detail-row">
+                                    <p class="detail-label">Primary Email</p>
+                                    <p class="detail-value">a.westbrook@luxe.design</p>
+                                </div>
+                                <div class="detail-row">
+                                    <p class="detail-label">Phone</p>
+                                    <p class="detail-value">+1 (555) 234-8901</p>
+                                </div>
+                                <div class="detail-row">
+                                    <p class="detail-label">Member Since</p>
+                                    <p class="detail-value">November 2022</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Active Tracking (col-span-2) -->
+                        <div class="bento-card tracking-card">
+                            <div class="tracking-header">
+                                <div class="card-header no-mb">
+                                    <h3 class="font-headline-md text-headline-md">Active Tracking</h3>
+                                    <span class="status-pill shipped">Shipped</span>
+                                </div>
+                            </div>
+                            <div class="tracking-body">
+                                <div class="tracking-content">
+                                    <div class="tracking-img-wrap">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf9Hu-MclkUn2RlJz60s_FP-N7GqBfC_bAXTFRv2an268spFpsrtA69dFLXf22dnoP9aKv61HXSz4RCbYmu0Q3BRHLjQ2KrhFssIp4Y6MaEtrSyyakie4MWK3RIipxhxe9cVi42xrJx6-3k0WEkRsruHmK30Gjqj6nV_sRrZp37Ktc_-rXEy4jCU403kscYgDThcVrGDlz1hPRw-u1Al4ADNDDARilSQt32AaNFW1qSBhmyxGGtzds" alt="Obsidian Leather Weekender">
+                                    </div>
+                                    <div class="tracking-info">
+                                        <div class="tracking-info-top">
+                                            <div>
+                                                <p class="font-label-caps text-outline">Order #LX-99201</p>
+                                                <h4 class="text-primary" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 600; line-height: 28px;">Obsidian Leather Weekender</h4>
+                                            </div>
+                                            <p class="font-headline-md text-headline-md">Rs. 1,250</p>
+                                        </div>
+
+                                        <!-- Tracking Progress Widget -->
+                                        <div class="tracking-progress">
+                                            <div class="tracking-progress-lines">
+                                                <div class="tracking-line-bg"></div>
+                                                <div class="tracking-line-filled"></div>
+
+                                                <div class="tracking-step">
+                                                    <div class="tracking-step-circle"></div>
+                                                    <span class="tracking-step-label">Ordered</span>
+                                                </div>
+                                                <div class="tracking-step">
+                                                    <div class="tracking-step-circle"></div>
+                                                    <span class="tracking-step-label">Processed</span>
+                                                </div>
+                                                <div class="tracking-step">
+                                                    <div class="tracking-step-circle large">
+                                                        <span class="material-symbols-outlined">local_shipping</span>
+                                                    </div>
+                                                    <span class="tracking-step-label">In Transit</span>
+                                                </div>
+                                                <div class="tracking-step">
+                                                    <div class="tracking-step-circle outline"></div>
+                                                    <span class="tracking-step-label">Delivered</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tracking-bottom">
+                                            <p class="tracking-estimate">Estimated Delivery: Tomorrow by 5:00 PM</p>
+                                            <a href="#" class="tracking-history-link">Full History</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Orders Table -->
+                    <section class="bento-card fade-in-section">
+                        <div class="orders-card-header">
+                            <h3 class="font-headline-md text-headline-md">Recent Orders</h3>
+                            <a href="#" class="view-all-link">View All Orders</a>
+                        </div>
+                        <div class="orders-table-wrap">
+                            <table class="orders-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th class="text-right">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="order-id" data-label="Order ID">#LX-99182</td>
+                                        <td class="order-date" data-label="Date">Oct 14, 2024</td>
+                                        <td data-label="Status">
+                                            <span class="status-pill processing">Processing</span>
+                                        </td>
+                                        <td class="order-total" data-label="Total">Rs. 450.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="order-id" data-label="Order ID">#LX-99054</td>
+                                        <td class="order-date" data-label="Date">Sep 28, 2024</td>
+                                        <td data-label="Status">
+                                            <span class="status-pill delivered">Delivered</span>
+                                        </td>
+                                        <td class="order-total" data-label="Total">Rs. 2,100.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="order-id" data-label="Order ID">#LX-98821</td>
+                                        <td class="order-date" data-label="Date">Sep 15, 2024</td>
+                                        <td data-label="Status">
+                                            <span class="status-pill delivered">Delivered</span>
+                                        </td>
+                                        <td class="order-total" data-label="Total">Rs. 89.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Bottom 2-col Grid: Address + Payment -->
+                    <div class="account-bottom-grid">
+
+                        <!-- Default Address -->
+                        <div class="bento-card padded fade-in-section">
+                            <div class="card-header">
+                                <h3 class="font-headline-md text-headline-md">Default Address</h3>
+                                <button class="edit-icon-btn">
+                                    <span class="material-symbols-outlined">edit_square</span>
+                                </button>
+                            </div>
+                            <div class="address-row">
+                                <span class="material-symbols-outlined address-icon" style="font-size: 24px;">home</span>
+                                <div>
+                                    <p class="address-name">Alexander Westbrook</p>
+                                    <p class="address-detail">742 Fifth Avenue, Suite 1201</p>
+                                    <p class="address-detail">New York, NY 10019</p>
+                                    <p class="address-detail">United States</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="bento-card padded fade-in-section">
+                            <div class="card-header">
+                                <h3 class="font-headline-md text-headline-md">Payment Method</h3>
+                                <button class="add-icon-btn">
+                                    <span class="material-symbols-outlined">add_circle</span>
+                                </button>
+                            </div>
+                            <div class="payment-method-row">
+                                <div class="visa-logo">VISA</div>
+                                <div class="payment-info">
+                                    <p class="payment-label">Primary Card</p>
+                                    <p class="payment-number">&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 4492</p>
+                                </div>
+                                <span class="payment-expiry">Exp 02/27</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Account Footer -->
+    <footer class="account-footer-wrap">
+        <div class="account-footer-grid">
+            <div class="account-footer-col-2">
+                <a href="#" class="account-footer-brand font-headline-lg">LUXE</a>
+                <p class="account-footer-desc font-body-sm">
+                    Curated for the discerning eye. We provide a seamless luxury experience from selection to doorstep.
+                </p>
+            </div>
+            <div class="account-footer-col">
+                <h5 class="font-label-caps mb-md">Shop</h5>
+                <ul>
+                    <li><a href="#" class="font-body-sm">Shop All</a></li>
+                    <li><a href="#" class="font-body-sm">New Arrivals</a></li>
+                    <li><a href="#" class="font-body-sm">Collections</a></li>
+                    <li><a href="#" class="font-body-sm">Bespoke</a></li>
+                </ul>
+            </div>
+            <div class="account-footer-col">
+                <h5 class="font-label-caps mb-md">Support</h5>
+                <ul>
+                    <li><a href="#" class="font-body-sm">Shipping</a></li>
+                    <li><a href="#" class="font-body-sm">Returns</a></li>
+                    <li><a href="#" class="font-body-sm">Contact</a></li>
+                    <li><a href="#" class="font-body-sm">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="account-footer-col">
+                <h5 class="font-label-caps mb-md">Legal</h5>
+                <ul>
+                    <li><a href="#" class="font-body-sm">Privacy</a></li>
+                    <li><a href="#" class="font-body-sm">Terms</a></li>
+                    <li><a href="#" class="font-body-sm">Accessibility</a></li>
+                </ul>
+            </div>
+            <div class="account-footer-social-col">
+                <div class="account-footer-social-row">
+                    <a href="#" class="material-symbols-outlined">public</a>
+                    <a href="#" class="material-symbols-outlined">share</a>
+                </div>
+            </div>
+        </div>
+        <div class="account-footer-bottom">
+            <p class="account-footer-copyright">&copy; 2024 LUXE. All rights reserved.</p>
+            <p class="account-footer-tagline">Curated for the discerning eye.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
